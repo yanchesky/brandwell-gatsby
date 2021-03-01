@@ -1,0 +1,25 @@
+{
+  "name": "brandwell-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "brandwell-gatsby",
+  "author": "Janek Biardzki",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "gatsby": "^2.32.8",
+    "gatsby-plugin-styled-components": "^3.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.1"
+  }
+}
