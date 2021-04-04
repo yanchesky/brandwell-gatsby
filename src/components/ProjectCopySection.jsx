@@ -37,7 +37,7 @@ const MainWrapper = styled.div`
     line-height: 28px;
     
     ${media.tablet`
-        font-size: 2.125rem;
+        font-size: 2.25rem;
         font-weight: 300;
         line-height: 42px;
         margin-bottom: 10rem;
