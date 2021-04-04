@@ -33,16 +33,17 @@
 
     Edit `src/pages/index.js` to see your site update in real-time!
 
-4.  **Learn more**
+4.  **Tłumaczenia**
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    Tłumaczenie urli stron jest oparte na pliku  ```src/intl/routeTranslations.json```
+    Klucze muszą odpowiadać stronom w ```src/pages```. Jeśli w danym kluczu nie ma odpowiednika
+    w innym języku, brana jest wartość domyślna.
+    
+    Tłumaczenie projektów z portfolio odbywa się ```gatsby-node.js``` i wymagana jest określona
+    struktura plików *.md. default.md zawiera informacje powtarzalne w innych językach, jak 
+    na przykład klucze tagów. Warianty językowe są odczytywane z nazwy pliku. Np. ```en.md```
+    
+    W graph query w ProjectTemplate podajemy tylko te pola, które są dostępne we wszystkich
+    wariantach językowych. Jeśli chcemy, odnieść się do pola, które jest uniwersalne dla wszystkich
+    wariantów językowych robimy to w query w ```gatsby-node.js```
+    
