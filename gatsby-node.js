@@ -23,6 +23,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   categories
                   product
                   producer
+                  occurrence
                 }
                 html
               }
@@ -69,6 +70,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     );
 
     const {
+      occurrence,
       categories,
       product: defProduct,
       producer: defProducer,
@@ -100,6 +102,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           locales: languages,
           locale: language,
           categories,
+          occurrence,
           product: intldProduct || defProduct,
           producer: intldProducer || defProducer,
         },

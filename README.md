@@ -47,3 +47,8 @@
     wariantach językowych. Jeśli chcemy, odnieść się do pola, które jest uniwersalne dla wszystkich
     wariantów językowych robimy to w query w ```gatsby-node.js```
     
+    **Projekty**
+
+    Wygląd poszczególnych projektów bazuje na tekście i zdjęciach. Na różnych projektach jest
+    różna ułożenie tekstu i zdjęć między sobą. Dlatego w plikach md podawana jest informacja
+    przed którym zdjęciem ma być wstawiony paragraf. 

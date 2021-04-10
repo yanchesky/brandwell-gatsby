@@ -8,16 +8,64 @@ import {
   reduceImageQueryResult,
 } from "src/helpers";
 import Layout from "../layouts/main";
-import ProjectCopySection from "../components/ProjectCopySection";
+import { media } from "src/helpers";
 
-const StyledGatsbyImage = styled(GatsbyImage)`
+const InfoWrapper = styled.div`
+  max-width: ${(props) => props.theme.sizes.maxWidth};
+  padding: 0 1rem;
+  margin: auto;
+`;
+
+const Info = styled.span`
+  font-family: "Roboto", sans-serif;
+  ${(props) => props.bold && "font-weight: bold"};
+
+  & + span {
+    margin-left: 0.5rem;
+  }
+`;
+
+const Paragraph = styled.p`
+  font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
+  max-width: 1138px;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 0 2rem;
+
+  ${media.mobile`
+    margin: 10rem auto;
+    font-size: ${(props) => (props.isSmall ? "1.5rem" : "2.25rem")};
+  `}
+`;
+
+const Heading = styled.h1`
+  max-width: 1138px;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  font-size: 2rem;
+  ${media.mobile`
+    font-size: 4rem;
+    margin: 5rem auto;
+  `}
+`;
+
+const StyledImage = styled(GatsbyImage)`
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
-  max-height: 100vh;
+
   padding: 0;
-  margin: 0;
+
+  ${(props) =>
+    props.isFullscreen
+      ? `
+        height: 0;
+        padding-bottom: ${props.ratios.desktop}%;
+        `
+      : `max-width: ${props.theme.sizes.maxWidth}`};
+
+  margin: 0 auto;
 
   ${(props) =>
     props.ratios.mobile &&
@@ -38,12 +86,36 @@ const StyledGatsbyImage = styled(GatsbyImage)`
     `}
 `;
 
+const renderImage = ({ value, type }) => {
+  console.log("value:", value);
+  const ratios = getArtDirectedAspectRatios(value);
+  const artDirectedImages = getArtDirectedImages(value);
+  const artDirectedImage = withArtDirection(
+    getImage(value.desktop),
+    artDirectedImages
+  );
+
+  return (
+    <StyledImage
+      isFullscreen={type === "full-image"}
+      alt="sds"
+      image={artDirectedImage}
+      ratios={ratios}
+      objectFit="contain"
+    />
+  );
+};
+
+const renderText = ({ value, type }) => {
+  return <Paragraph isSmall={type === "small-text"}>{value}</Paragraph>;
+};
+
 const ProjectTemplate = ({
   data,
-  pageContext: { producer, product, categories },
+  pageContext: { producer, product, categories, occurrence },
 }) => {
   const {
-    markdownRemark: { frontmatter, html },
+    markdownRemark: { frontmatter, html, htmlAst },
     desktopImages: { edges: desktopEdges },
     tabletImages: { edges: tabletEdges },
     mobileImages: { edges: mobileEdges },
@@ -52,7 +124,7 @@ const ProjectTemplate = ({
   const mobileImages = reduceImageQueryResult(mobileEdges);
   const tabletImages = reduceImageQueryResult(tabletEdges);
 
-  const [headingImage, ...images] = desktopEdges
+  const images = desktopEdges
     .map(({ node }) => ({
       order: parseInt(node.name) || 0,
       desktop: node,
@@ -61,42 +133,55 @@ const ProjectTemplate = ({
     }))
     .sort((a, b) => a.order - b.order);
 
-  const artDirectedHeadingImage = withArtDirection(
-    getImage(headingImage.desktop),
-    getArtDirectedImages(headingImage)
-  );
+  const paragraphs = htmlAst.children
+    .filter((el) => !!el.children)
+    .map(({ children }) => children[0].value);
+
+  const orderedTextAndImages = occurrence.map((blockType) => {
+    switch (blockType) {
+      case "text":
+        return {
+          type: "text",
+          value: paragraphs.shift(),
+        };
+      case "small-text":
+        return {
+          type: "small-text",
+          value: paragraphs.shift(),
+        };
+      case "image":
+        return {
+          type: "image",
+          value: images.shift(),
+        };
+      case "full-image":
+        return {
+          type: "full-image",
+          value: images.shift(),
+        };
+    }
+  });
+
+  console.log("orderedTextAndImages:", orderedTextAndImages);
 
   return (
     <Layout>
-      <GatsbyImage
-        alt="heading"
-        image={artDirectedHeadingImage}
-        ratios={getArtDirectedAspectRatios(headingImage)}
-        style={{
-          width: "100%",
-          height: "calc(100vh - 127px)",
-        }}
-      />
-      <ProjectCopySection
-        heading={frontmatter.heading}
-        mainText={html}
-        projectDetails={{ producer, product, categories }}
-      />
-      {images.map((el) => {
-        const ratios = getArtDirectedAspectRatios(el);
-        const artDirectedImages = getArtDirectedImages(el);
-        const artDirectedImage = withArtDirection(
-          getImage(el.desktop),
-          artDirectedImages
-        );
-
-        return (
-          <StyledGatsbyImage
-            alt="sds"
-            image={artDirectedImage}
-            ratios={ratios}
-          />
-        );
+      <InfoWrapper>
+        <Info bold>{frontmatter.producer}</Info>
+        <Info>{frontmatter.product}</Info>
+      </InfoWrapper>
+      <Heading>{frontmatter.heading}</Heading>
+      {[...orderedTextAndImages, ...images].map((content) => {
+        switch (content.type) {
+          case "text":
+          case "small-text":
+            return renderText(content);
+          case "image":
+          case "full-image":
+            return renderImage(content);
+          default:
+            return renderImage({ value: content });
+        }
       })}
     </Layout>
   );
@@ -106,11 +191,13 @@ export const pageQuery = graphql`
   query($slugg: String!, $relativeDirectory: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slugg } }) {
       html
+      htmlAst
       frontmatter {
         slug
         producer
         product
         heading
+        occurrence
       }
     }
     desktopImages: allFile(

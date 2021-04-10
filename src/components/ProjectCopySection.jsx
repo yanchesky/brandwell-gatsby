@@ -7,6 +7,7 @@ import { media } from "src/helpers/breakpoints";
 const MainWrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.maxWidth};
   margin: auto;
+  text-align: center;
   padding: 1rem;
   display: grid;
   grid-template-columns: minmax(10rem, 14rem) 1fr;
@@ -31,15 +32,15 @@ const MainWrapper = styled.div`
   .project-heading {
     grid-area: heading;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 900;
     margin-bottom: 2rem;
     
     line-height: 28px;
     
     ${media.tablet`
-        font-size: 2.25rem;
-        font-weight: 300;
-        line-height: 42px;
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 5rem;
         margin-bottom: 10rem;
     `}
   }
@@ -72,7 +73,6 @@ const ProjectCopySection = ({ mainText: __html, heading, projectDetails }) => {
   return (
     <MainWrapper>
       <p className="project-heading">{heading}</p>
-      <ProjectDetailsElement projectDetails={projectDetails} />
       <div className="main-copy-section" dangerouslySetInnerHTML={{ __html }} />
     </MainWrapper>
   );
