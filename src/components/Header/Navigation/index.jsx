@@ -5,7 +5,7 @@ import MobileNavigation from "./MobileNavigation";
 const Index = () => {
   return (
     <>
-      <DesktopNavigation />
+      {/*<DesktopNavigation />*/}
       <MobileNavigation />
     </>
   );

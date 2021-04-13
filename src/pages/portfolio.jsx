@@ -4,6 +4,12 @@ import Layout from "../layouts/main";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby-plugin-react-i18next";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 4rem;
+`;
 
 const getCurrentLanguage = (data) => {
   return data.locales.edges[0].node.language;
@@ -34,23 +40,27 @@ const Portfolio = ({ data }) => {
 
   return (
     <Layout>
-      <p>
-        Jesteśmy niezależną agencją brandingową. Budujemy marki, wymyślamy im
-        nowe nazwy, tworzymy strategie. Projektujemy opakowania i identyfikacje.
-        Odświeżamy też wizerunki istniejących marek lub opakowań.{" "}
-      </p>
-      {projects.map(({ thumbnail, slug }) => {
-        return (
-          <Link to={`/portfolio/${slug}`} language={language}>
-            <GatsbyImage
-              alt={"sdsd"}
-              image={thumbnail.childImageSharp.gatsbyImageData}
-            />
-            <span>{slug}</span>
-          </Link>
-        );
-      })}
-      <PortfolioContainer />
+      <Title>Portfolio</Title>
+      <div
+        style={{
+          maxWidth: "1366px",
+          margin: "0 auto",
+          padding: "1rem",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        {[...projects, projects[0]].map(({ thumbnail, slug }) => {
+          return (
+            <Link to={`/portfolio/${slug}`} language={language}>
+              <GatsbyImage
+                alt={"sdsd"}
+                image={thumbnail.childImageSharp.gatsbyImageData}
+              />
+            </Link>
+          );
+        })}
+      </div>
     </Layout>
   );
 };
@@ -84,7 +94,7 @@ export const query = graphql`
                 title
                 thumbnail {
                   childImageSharp {
-                    gatsbyImageData(width: 200, height: 200)
+                    gatsbyImageData(width: 415, height: 415)
                   }
                 }
               }

@@ -22,7 +22,7 @@ const LinksWrapper = styled.nav`
   margin-left: auto;
   margin-right: 2rem;
   ${media.desktop`
-   display: none;
+   //display: none;
   `}
 `;
 
@@ -31,10 +31,11 @@ const SiteNavigation = styled.div``;
 const Language = styled.div``;
 
 const StyledLink = styled(Link)`
+  text-align: center;
   display: block;
-  font-size: 2rem;
-  font-weight: 400;
-  text-align: left;
+  font-size: 8rem;
+  line-height: 7rem;
+  font-weight: 900;
 
   &:hover {
     text-decoration: underline;
@@ -42,14 +43,28 @@ const StyledLink = styled(Link)`
 `;
 
 const MobileNavigation = () => {
+  const hamburgerMenuCheckbox = React.useRef();
+  const [isOpened, setIsOpened] = React.useState(true);
+
+  React.useEffect(() => {
+    hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
+    setIsOpened(false);
+  }, []);
+
   const translatedNavLinks = useTranslateNavigation(navigationElements);
   const { englishTranslation, polishTranslation } = useTranslateLanguagesPicker(
     navigationElements
   );
+
   return (
     <LinksWrapper>
       <HamburgerWrapper>
-        <HamburgerCheckbox type="checkbox" />
+        <HamburgerCheckbox
+          checked={isOpened}
+          onClick={() => setIsOpened(!isOpened)}
+          type="checkbox"
+          className="checkbox-toggle"
+        />
         <HamburgerIconWrapper>
           <div />
         </HamburgerIconWrapper>
@@ -59,7 +74,11 @@ const MobileNavigation = () => {
               <LinksList>
                 {translatedNavLinks.map(({ language, to, label }, index) => (
                   <li key={index}>
-                    <StyledLink language={language} to={to}>
+                    <StyledLink
+                      onClick={console.log}
+                      language={language}
+                      to={to}
+                    >
                       {label}
                     </StyledLink>
                   </li>

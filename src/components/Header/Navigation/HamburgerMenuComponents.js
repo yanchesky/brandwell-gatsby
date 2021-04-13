@@ -24,9 +24,9 @@ export const HamburgerIconWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  width: 40px;
-  height: 40px;
-  padding: 0.5em;
+  width: 60px;
+  height: 60px;
+  padding: 0.5em 1em;
   border-radius: 0 0.12em 0.12em 0;
   cursor: pointer;
   transition: box-shadow 0.4s ease;
@@ -80,25 +80,33 @@ export const HamburgerLinksWrapper = styled.div`
   justify-content: center;
 
   > div {
-    width: 100%;
-    height: 100%;
+    width: 200vh;
+    height: 200vh;
     color: black;
-    background: rgba(255, 255, 255, 0.97);
-    background: red;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
     transition: all 0.4s ease;
     flex: none;
-    transform: translateX(-100vw);
+    transform: scale(0);
     backface-visibility: hidden;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     > div {
       position: relative;
       text-align: center;
+      max-width: 90vw;
       max-height: 100vh;
       opacity: 0;
       transition: opacity 0.4s ease;
       overflow-y: auto;
-      margin-top: 4rem;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.9);
     }
   }
 `;
@@ -108,16 +116,14 @@ export const LinksList = styled.ul`
   padding: 0 1em;
   margin: 0;
   display: block;
+  overflow: hidden;
   max-height: 100vh;
-  width: 100%;
 
   > li {
     padding: 0;
-    margin: 0.5rem 0;
-    padding: 0.5rem 0;
+    margin: 1em;
     font-size: 24px;
     display: block;
-    border-bottom: 1px solid black;
 
     a > {
       position: relative;
@@ -140,7 +146,7 @@ export const HamburgerCheckbox = styled.input`
 
   &:checked + ${HamburgerIconWrapper} {
     > div {
-      transform: rotate(135deg) scale(1.2);
+      transform: rotate(135deg);
 
       &:before,
       &:after {
@@ -157,12 +163,13 @@ export const HamburgerCheckbox = styled.input`
       visibility: visible;
 
       > div {
-        transform: translateX(0);
-        transition-duration: 0.5s;
+        transform: scale(1);
+        transition-duration: 0.75s;
 
         > div {
           opacity: 1;
-          transition: opacity 0.6s ease 0.3s;
+          transform: scale(1);
+          transition: all 0.4s ease 0.4s;
         }
       }
     }

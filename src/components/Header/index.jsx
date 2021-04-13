@@ -19,7 +19,7 @@ const MainWrapper = styled.div`
   `}
 `;
 
-const Index = () => {
+const Header = () => {
   return (
     <MainWrapper>
       <Logo alt="logo" src={brandwell_logo} />
@@ -28,4 +28,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Header;
