@@ -63,7 +63,7 @@ const StyledImage = styled(GatsbyImage)`
         height: 0;
         padding-bottom: ${props.ratios.desktop}%;
         `
-      : `max-width: ${props.theme.sizes.maxWidth}`};
+      : ``};
 
   margin: 0 auto;
 
