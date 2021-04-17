@@ -3,7 +3,7 @@ import Layout from "../layouts/main";
 import { graphql } from "gatsby";
 
 const Kontakt = () => {
-  return <Layout>kontakt</Layout>;
+  return <span>kontakt</span>;
 };
 
 export default Kontakt;

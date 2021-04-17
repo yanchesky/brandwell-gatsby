@@ -17,6 +17,7 @@ import {
 } from "./HamburgerMenuComponents";
 
 const LinksWrapper = styled.nav`
+  z-index: 2;
   position: relative;
   display: flex;
   margin-left: auto;
@@ -44,12 +45,13 @@ const StyledLink = styled(Link)`
 
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
-  const [isOpened, setIsOpened] = React.useState(true);
 
   React.useEffect(() => {
     hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
-    setIsOpened(false);
   }, []);
+
+  const closeHamburgerMenu = () =>
+    (hamburgerMenuCheckbox.current.checked = false);
 
   const translatedNavLinks = useTranslateNavigation(navigationElements);
   const { englishTranslation, polishTranslation } = useTranslateLanguagesPicker(
@@ -59,12 +61,7 @@ const MobileNavigation = () => {
   return (
     <LinksWrapper>
       <HamburgerWrapper>
-        <HamburgerCheckbox
-          checked={isOpened}
-          onClick={() => setIsOpened(!isOpened)}
-          type="checkbox"
-          className="checkbox-toggle"
-        />
+        <HamburgerCheckbox type="checkbox" className="checkbox-toggle" />
         <HamburgerIconWrapper>
           <div />
         </HamburgerIconWrapper>
@@ -75,7 +72,7 @@ const MobileNavigation = () => {
                 {translatedNavLinks.map(({ language, to, label }, index) => (
                   <li key={index}>
                     <StyledLink
-                      onClick={console.log}
+                      onClick={closeHamburgerMenu}
                       language={language}
                       to={to}
                     >

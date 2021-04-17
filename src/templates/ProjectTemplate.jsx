@@ -63,7 +63,7 @@ const StyledImage = styled(GatsbyImage)`
         height: 0;
         padding-bottom: ${props.ratios.desktop}%;
         `
-      : ``};
+      : `max-width: ${props.theme.sizes.maxWidth}`};
 
   margin: 0 auto;
 
@@ -165,7 +165,7 @@ const ProjectTemplate = ({
   console.log("orderedTextAndImages:", orderedTextAndImages);
 
   return (
-    <Layout>
+    <>
       <InfoWrapper>
         <Info bold>{frontmatter.producer}</Info>
         <Info>{frontmatter.product}</Info>
@@ -183,7 +183,7 @@ const ProjectTemplate = ({
             return renderImage({ value: content });
         }
       })}
-    </Layout>
+    </>
   );
 };
 

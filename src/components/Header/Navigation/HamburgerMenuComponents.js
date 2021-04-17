@@ -80,14 +80,13 @@ export const HamburgerLinksWrapper = styled.div`
   justify-content: center;
 
   > div {
-    width: 200vh;
-    height: 200vh;
+    width: 100vw;
+    height: 100vh;
     color: black;
     background: rgba(255, 255, 255, 1);
-    border-radius: 50%;
-    transition: all 0.4s ease;
+    transition: all 0.7s ease;
     flex: none;
-    transform: scale(0);
+    opacity: 0;
     backface-visibility: hidden;
     overflow: hidden;
     display: flex;
@@ -100,13 +99,13 @@ export const HamburgerLinksWrapper = styled.div`
       max-width: 90vw;
       max-height: 100vh;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: all 0.4s ease;
       overflow-y: auto;
       flex: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: scale(0.9);
+      transform: scale(1);
     }
   }
 `;
@@ -145,6 +144,9 @@ export const HamburgerCheckbox = styled.input`
   opacity: 0;
 
   &:checked + ${HamburgerIconWrapper} {
+    body {
+      overflow: hidden;
+    }
     > div {
       transform: rotate(135deg);
 
@@ -163,7 +165,7 @@ export const HamburgerCheckbox = styled.input`
       visibility: visible;
 
       > div {
-        transform: scale(1);
+        opacity: 1;
         transition-duration: 0.75s;
 
         > div {

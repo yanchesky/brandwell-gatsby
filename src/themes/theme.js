@@ -10,6 +10,7 @@ export default {
   },
   sizes: {
     maxWidth: "1366px",
+    textMaxWidth: "1140px",
     footerWidth: "896px",
   },
 };

@@ -60,11 +60,7 @@ const IndexPage = (props) => {
   // console.log("groupedPages:", groupedPages);
   // console.log("mdPagesSitemap:", mdPagesSitemap);
 
-  return (
-    <Layout>
-      <Wrapper>main</Wrapper>
-    </Layout>
-  );
+  return <Wrapper>main</Wrapper>;
 };
 
 export default IndexPage;

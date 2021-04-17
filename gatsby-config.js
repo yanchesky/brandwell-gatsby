@@ -24,6 +24,12 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`${__dirname}/src/layouts/main.jsx`),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/intl`,

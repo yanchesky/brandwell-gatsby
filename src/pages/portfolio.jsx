@@ -2,9 +2,11 @@ import React from "react";
 import PortfolioContainer from "../components/PortfolioContainer";
 import Layout from "../layouts/main";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
+import AnimatedLink from "src/components/AnimatedLinkPageTransitionWrapper";
+import ProjectThumbnail from "../components/ProjectThumbnail";
 
 const Title = styled.h1`
   text-align: center;
@@ -24,8 +26,6 @@ const formatProjectsQueryResponse = (data) => {
     const slug = edges.find((edge) => edge.node.name === languageForSearch)
       ?.node?.childMarkdownRemark?.frontmatter.slug;
 
-    console.log("body:", body);
-
     return {
       ...body.node.childMarkdownRemark.frontmatter,
       slug,
@@ -38,8 +38,10 @@ const Portfolio = ({ data }) => {
   const projects = formatProjectsQueryResponse(data);
   const language = getCurrentLanguage(data);
 
+  console.log("projects:", projects);
+
   return (
-    <Layout>
+    <>
       <Title>Portfolio</Title>
       <div
         style={{
@@ -50,18 +52,22 @@ const Portfolio = ({ data }) => {
           justifyContent: "space-between",
         }}
       >
-        {[...projects, projects[0]].map(({ thumbnail, slug }) => {
-          return (
-            <Link to={`/portfolio/${slug}`} language={language}>
-              <GatsbyImage
-                alt={"sdsd"}
-                image={thumbnail.childImageSharp.gatsbyImageData}
-              />
-            </Link>
-          );
-        })}
+        {[...projects, projects[0]].map(
+          ({ thumbnail, slug, producer, categories }) => {
+            return (
+              <AnimatedLink to={`/portfolio/${slug}`} language={language}>
+                <ProjectThumbnail
+                  alt={"sdsd"}
+                  image={thumbnail}
+                  producer={producer}
+                  categories={categories}
+                />
+              </AnimatedLink>
+            );
+          }
+        )}
       </div>
-    </Layout>
+    </>
   );
 };
 
