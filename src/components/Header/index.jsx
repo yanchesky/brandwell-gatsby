@@ -4,6 +4,7 @@ import brandwell_logo from "src/assets/svg/bradwell_logo.svg";
 import { media } from "src/helpers/breakpoints";
 
 import Navigation from "./Navigation";
+import AnimatedLink from "../AnimatedLinkPageTransitionWrapper";
 
 const Logo = styled.img`
   z-index: 5;
@@ -22,7 +23,9 @@ const MainWrapper = styled.div`
 const Header = () => {
   return (
     <MainWrapper>
-      <Logo alt="logo" src={brandwell_logo} />
+      <AnimatedLink to={`/portfolio/`}>
+        <Logo alt="logo" src={brandwell_logo} />
+      </AnimatedLink>
       <Navigation />
     </MainWrapper>
   );

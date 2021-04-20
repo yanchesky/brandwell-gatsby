@@ -1,4 +1,17 @@
 {
   "sample": 2,
-  "test": "polish test"
+  "test": "polish test",
+  "brand.book": "księga marki",
+  "brand.strategy": "strategia marki",
+  "brand.name": "nazwa marki",
+  "brand.logo": "logo marki",
+  "brand.copy": "hasło marki",
+  "redesign.logo": "redesign logo",
+  "lifting.logo": "lifting logo marki",
+  "packaging": "projekty opakowań",
+  "communication": "komunikacja",
+  "marketing.communication": "komunikacja marketingowa",
+  "promo.materials": "materiały promocyjne marki",
+  "marketing.materials": "projekty materiałów marketingowych",
+  "rebranding": "rebranding"
 }

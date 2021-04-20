@@ -1,16 +1,32 @@
 import React from "react";
-import PortfolioContainer from "../components/PortfolioContainer";
-import Layout from "../layouts/main";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Link } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
 import AnimatedLink from "src/components/AnimatedLinkPageTransitionWrapper";
 import ProjectThumbnail from "../components/ProjectThumbnail";
+import { media } from "src/helpers";
 
 const Title = styled.h1`
   text-align: center;
   font-size: 4rem;
+  margin-bottom: 2rem;
+`;
+
+const ThumbnailsWrapper = styled.div`
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  grid-template-columns: 1fr;
+
+  ${media.tablet`
+    grid-template-columns: 1fr 1fr;
+  `}
+
+  ${media.desktop`
+    grid-template-columns: 1fr 1fr 1fr;
+  `}
 `;
 
 const getCurrentLanguage = (data) => {
@@ -41,33 +57,23 @@ const Portfolio = ({ data }) => {
   console.log("projects:", projects);
 
   return (
-    <>
+    <div>
       <Title>Portfolio</Title>
-      <div
-        style={{
-          maxWidth: "1366px",
-          margin: "0 auto",
-          padding: "1rem",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        {[...projects, projects[0]].map(
-          ({ thumbnail, slug, producer, categories }) => {
-            return (
-              <AnimatedLink to={`/portfolio/${slug}`} language={language}>
-                <ProjectThumbnail
-                  alt={"sdsd"}
-                  image={thumbnail}
-                  producer={producer}
-                  categories={categories}
-                />
-              </AnimatedLink>
-            );
-          }
-        )}
-      </div>
-    </>
+      <ThumbnailsWrapper>
+        {projects.map(({ thumbnail, slug, producer, categories }) => {
+          return (
+            <AnimatedLink to={`/portfolio/${slug}`}>
+              <ProjectThumbnail
+                alt={"sdsd"}
+                image={thumbnail}
+                producer={producer}
+                categories={categories}
+              />
+            </AnimatedLink>
+          );
+        })}
+      </ThumbnailsWrapper>
+    </div>
   );
 };
 
@@ -100,7 +106,12 @@ export const query = graphql`
                 title
                 thumbnail {
                   childImageSharp {
-                    gatsbyImageData(width: 415, height: 415)
+                    gatsbyImageData(
+                      width: 415
+                      height: 415
+                      jpgOptions: { quality: 100 }
+                      quality: 100
+                    )
                   }
                 }
               }

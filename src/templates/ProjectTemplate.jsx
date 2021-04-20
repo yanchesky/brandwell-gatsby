@@ -52,7 +52,6 @@ const Heading = styled.h1`
 
 const StyledImage = styled(GatsbyImage)`
   position: relative;
-  display: block;
   width: 100%;
 
   padding: 0;
@@ -97,6 +96,7 @@ const renderImage = ({ value, type }) => {
 
   return (
     <StyledImage
+      style={{ display: "block" }}
       isFullscreen={type === "full-image"}
       alt="sds"
       image={artDirectedImage}
@@ -159,13 +159,19 @@ const ProjectTemplate = ({
           type: "full-image",
           value: images.shift(),
         };
+
+      default:
+        return {
+          type: "text",
+          value: paragraphs.shift(),
+        };
     }
   });
 
   console.log("orderedTextAndImages:", orderedTextAndImages);
 
   return (
-    <>
+    <div>
       <InfoWrapper>
         <Info bold>{frontmatter.producer}</Info>
         <Info>{frontmatter.product}</Info>
@@ -175,6 +181,7 @@ const ProjectTemplate = ({
         switch (content.type) {
           case "text":
           case "small-text":
+          case "bold-text":
             return renderText(content);
           case "image":
           case "full-image":
@@ -183,7 +190,7 @@ const ProjectTemplate = ({
             return renderImage({ value: content });
         }
       })}
-    </>
+    </div>
   );
 };
 

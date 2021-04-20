@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -29,7 +30,8 @@ const DescriptionContainer = styled.div`
   div {
     display: flex;
     flex-wrap: wrap;
-    max-width: fit-content;
+    justify-content: center;
+    //max-width: fit-content;
     > span {
       font-size: 0.875rem;
       margin-right: 0.25rem;
@@ -42,15 +44,19 @@ const DescriptionContainer = styled.div`
 `;
 
 const ProjectThumbnail = ({ alt, image, categories, producer }) => {
-  console.log("image:", image);
+  const { t } = useTranslation();
   return (
     <Wrapper>
-      <GatsbyImage alt={alt} image={getImage(image)} />
+      <GatsbyImage
+        style={{ width: "100%" }}
+        alt={alt}
+        image={getImage(image)}
+      />
       <DescriptionContainer>
         <h2>{producer}</h2>
         <div>
           {categories.map((category, index) => (
-            <span key={index}>{category}</span>
+            <span key={index}>{t(category)}</span>
           ))}
         </div>
       </DescriptionContainer>

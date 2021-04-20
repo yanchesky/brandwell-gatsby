@@ -8,7 +8,7 @@ const settings = {
   title: "brandwell-gatsby",
   siteUrl: "https://example.com/",
   defaultLanguage: "pl",
-  languages: ["pl", "en"],
+  languages: ["pl"],
   projectsSlug: "portfolio",
 };
 
