@@ -8,7 +8,7 @@ categories:
     - "brand.copy"
     - "packaging"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Hellena-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

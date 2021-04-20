@@ -8,7 +8,7 @@ categories:
     - "redesign.logo"
     - "packaging"
 
-thumbnail: "images/5.jpg"
+thumbnail: "images/Empire-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

@@ -8,7 +8,7 @@ categories:
     - "brand.book"
     - "marketing.materials"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/HanaSushi-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

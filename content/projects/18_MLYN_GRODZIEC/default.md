@@ -7,7 +7,7 @@ categories:
     - "brand.logo"
     - "packaging"
      
-thumbnail: "images/1.jpg"
+thumbnail: "images/MlynGrodziec-Thumb.jpg"
 occurrence:
     - "text"
     - "full-image"

@@ -10,7 +10,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/5.jpg"
+thumbnail: "images/True-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

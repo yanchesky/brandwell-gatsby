@@ -7,7 +7,7 @@ categories:
     - "brand.logo"
     - "packaging"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Perino-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

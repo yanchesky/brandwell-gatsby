@@ -8,7 +8,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Expression-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

@@ -8,7 +8,7 @@ categories:
     - "brand.logo"
     - "packaging"
 
-thumbnail: "images/thumbnail.jpg"
+thumbnail: "images/Arkana-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

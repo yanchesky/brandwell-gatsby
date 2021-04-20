@@ -8,7 +8,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/6.jpg"
+thumbnail: "images/Soap-and-Glory-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

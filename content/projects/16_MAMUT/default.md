@@ -7,7 +7,7 @@ categories:
     - "brand.logo"
     - "packaging"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Mamut-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

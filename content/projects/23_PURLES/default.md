@@ -9,7 +9,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Purles-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

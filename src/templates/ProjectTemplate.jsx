@@ -210,7 +210,7 @@ export const pageQuery = graphql`
     desktopImages: allFile(
       filter: {
         relativePath: { regex: $relativeDirectory }
-        name: { regex: "/^((?!mobile|tablet|thumbnail).)*$/" }
+        name: { regex: "/^((?!mobile|tablet|Thumb).)*$/" }
       }
     ) {
       edges {

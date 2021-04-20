@@ -8,7 +8,7 @@ categories:
     - "redesign.logo"
     - "packaging"
 
-thumbnail: "images/7.jpg"
+thumbnail: "images/Maga-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

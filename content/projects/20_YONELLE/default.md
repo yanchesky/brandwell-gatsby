@@ -9,7 +9,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/3.jpg"
+thumbnail: "images/Yonelle-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

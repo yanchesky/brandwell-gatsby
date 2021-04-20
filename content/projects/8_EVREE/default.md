@@ -11,7 +11,7 @@ categories:
     - "packaging"
     - "communication"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Evree-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

@@ -7,7 +7,7 @@ categories:
     - "brand.logo"
     - "packaging"
 
-thumbnail: "images/3.jpg"
+thumbnail: "images/ElCartel-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

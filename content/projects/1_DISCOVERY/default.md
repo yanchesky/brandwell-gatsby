@@ -8,7 +8,7 @@ categories:
     - "brand.logo"
     - "tv.graphics"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Discovery-Historia-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

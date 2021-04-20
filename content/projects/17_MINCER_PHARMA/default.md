@@ -10,7 +10,7 @@ categories:
     - "promo.materials"
     - "communication"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Mincer-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

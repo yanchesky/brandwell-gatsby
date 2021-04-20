@@ -8,7 +8,7 @@ categories:
     - "packaging"
     - "promo.materials"
 
-thumbnail: "images/2.jpg"
+thumbnail: "images/Permen-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

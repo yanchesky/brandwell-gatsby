@@ -7,7 +7,7 @@ categories:
     - "brand.name"
     - "brand.logo"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Bardo-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

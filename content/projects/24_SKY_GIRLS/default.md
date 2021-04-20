@@ -8,7 +8,7 @@ categories:
     - "redesign.logo"
     - "packaging"
 
-thumbnail: "images/8.jpg"
+thumbnail: "images/SkyGirls-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

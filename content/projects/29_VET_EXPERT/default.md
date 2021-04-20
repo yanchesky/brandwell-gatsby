@@ -9,7 +9,7 @@ categories:
     - "promo.materials"
     - "marketing.communication"
 
-thumbnail: "images/1.jpg"
+thumbnail: "images/Vet-Expert-Thumb.jpg"
 occurrence:
     - "full-image"
     - "text"

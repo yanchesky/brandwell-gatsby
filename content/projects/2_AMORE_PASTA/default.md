@@ -9,7 +9,7 @@ categories:
     - "brand.logo"
     - "packaging"
      
-thumbnail: "images/thumbnail.jpg"
+thumbnail: "images/AmorePasta-Thumb.jpg"
 occurrence:
     - "text"
     - "full-image"
