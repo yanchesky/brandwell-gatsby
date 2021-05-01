@@ -6,7 +6,7 @@ import { media } from "src/helpers/breakpoints";
 
 const Wrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.textMaxWidth};
-  margin: 0 auto;
+  margin: 5rem auto 10rem;
   padding: 0 1rem;
   text-align: center;
   p {

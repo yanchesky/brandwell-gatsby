@@ -4,7 +4,7 @@ import {
   useTranslateNavigation,
 } from "../../../hooks";
 import { navigationElements } from "./navgationElements";
-import { Link } from "gatsby-plugin-react-i18next";
+import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
 import { media } from "src/helpers";
 import {
@@ -15,6 +15,7 @@ import {
   LinksList,
   LanguagesWrapper,
 } from "./HamburgerMenuComponents";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const LinksWrapper = styled.nav`
   z-index: 2;
@@ -31,12 +32,43 @@ const SiteNavigation = styled.div``;
 
 const Language = styled.div``;
 
+const LanguageLink = styled(Link)`
+  text-align: center;
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+
+  ${media.tablet`
+    font-size: 2.5rem;
+    margin-top: 3rem;
+  `}
+
+  ${media.desktop`
+    font-size: 4rem;
+   
+  `}
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const StyledLink = styled(Link)`
   text-align: center;
   display: block;
-  font-size: 8rem;
-  line-height: 7rem;
+  font-size: 3rem;
+  line-height: 2rem;
   font-weight: 900;
+
+  ${media.tablet`
+    line-height: 4rem;
+    font-size: 6rem;
+  `}
+
+  ${media.desktop`
+    line-height: 6rem;
+    font-size: 8rem;
+  `}
 
   &:hover {
     text-decoration: underline;
@@ -45,6 +77,7 @@ const StyledLink = styled(Link)`
 
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
+  const { language, languages, path } = React.useContext(I18nextContext);
 
   React.useEffect(() => {
     hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
@@ -80,6 +113,16 @@ const MobileNavigation = () => {
                     </StyledLink>
                   </li>
                 ))}
+                <li>
+                  <LanguageLink
+                    language={language === "pl" ? "en" : "pl"}
+                    to={
+                      language === "pl" ? englishTranslation : polishTranslation
+                    }
+                  >
+                    {language === "pl" ? "english" : "polski"}
+                  </LanguageLink>
+                </li>
               </LinksList>
             </div>
           </div>

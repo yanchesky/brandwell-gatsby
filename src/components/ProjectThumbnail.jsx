@@ -36,6 +36,10 @@ const DescriptionContainer = styled.div`
       font-size: 0.875rem;
       margin-right: 0.25rem;
 
+      &:first-letter {
+        text-transform: capitalize;
+      }
+
       &:after {
         content: ".";
       }

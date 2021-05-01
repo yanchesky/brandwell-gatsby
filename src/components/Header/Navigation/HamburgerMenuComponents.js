@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const HamburgerWrapper = styled.div`
   z-index: 1;
-  width: 40px;
-  height: 40px;
+  width: 65px;
+  height: 60px;
 `;
 
 export const LanguagesWrapper = styled.div`
@@ -24,7 +24,7 @@ export const HamburgerIconWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  width: 60px;
+  width: 65px;
   height: 60px;
   padding: 0.5em 1em;
   border-radius: 0 0.12em 0.12em 0;
@@ -39,7 +39,8 @@ export const HamburgerIconWrapper = styled.div`
     position: relative;
     flex: none;
     width: 100%;
-    height: 2px;
+    height: 4px;
+    border-radius: 8px;
     background: black;
     transition: all 0.4s ease;
     display: flex;
@@ -54,7 +55,8 @@ export const HamburgerIconWrapper = styled.div`
       top: -10px;
       left: 0;
       width: 100%;
-      height: 2px;
+      height: 4px;
+      border-radius: 4px;
       background: inherit;
       transition: all 0.4s ease;
     }

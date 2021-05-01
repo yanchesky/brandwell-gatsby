@@ -55,56 +55,38 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   } = result.data.site.siteMetadata;
 
   result.data.projects.group.forEach(({ edges }) => {
-    const pageLanguageVariants = edges.reduce(
-      (prev, curr) => {
-        return {
-          ...prev,
-          [curr.node.name]: {
-            ...curr.node.childMarkdownRemark.frontmatter,
-            html: curr.node.childMarkdownRemark.html,
-          },
-          relativeDirectory: curr.node.relativeDirectory,
-        };
-      },
-      { [defaultLanguage]: {} }
-    );
+    const pageLanguageVariants = edges.reduce((prev, curr) => {
+      return {
+        ...prev,
+        [curr.node.name]: {
+          ...curr.node.childMarkdownRemark.frontmatter,
+          html: curr.node.childMarkdownRemark.html,
+          id: curr.node.childMarkdownRemark.id,
+        },
+        relativeDirectory: curr.node.relativeDirectory,
+      };
+    }, {});
 
-    const {
-      occurrence,
-      categories,
-      product: defProduct,
-      producer: defProducer,
-      slug: defSlug,
-      html: defHtml,
-      images: defImages,
-    } = pageLanguageVariants["default"];
+    const { occurrence, categories } = pageLanguageVariants["default"];
 
     languages.forEach((language) => {
-      const {
-        product: intldProduct,
-        producer: intldProducer,
-        heading: intldHeading,
-        slug: intldSlug,
-        html: intldHtml,
-        images: intldImages,
-      } = pageLanguageVariants[language];
-
-      const path = intldSlug || defSlug;
+      const { slug, id } =
+        pageLanguageVariants[language] || pageLanguageVariants["default"];
 
       const relativeDirectory = `/${pageLanguageVariants.relativeDirectory}/images/`;
 
       createPage({
-        path: `${language}/${projectsSlug}/${path}`,
+        path: `${language}/${projectsSlug}/${slug}`,
         component: ProjectTemplate,
         context: {
-          slugg: path,
+          slugg: slug,
+          id,
           relativeDirectory,
           locales: languages,
           locale: language,
           categories,
           occurrence,
-          product: intldProduct || defProduct,
-          producer: intldProducer || defProducer,
+          language,
         },
       });
     });

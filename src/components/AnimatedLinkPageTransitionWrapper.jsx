@@ -18,12 +18,17 @@ const entry = {
   },
 };
 
-const AnimatedLinkPageTransitionWrapper = ({ children, to }) => {
+const AnimatedLinkPageTransitionWrapper = ({ children, to, style }) => {
   const { i18n } = useTranslation();
   const linkWithLanguage = `/${i18n.language}${to}`;
 
   return (
-    <TransitionLink to={linkWithLanguage} exit={exit} entry={entry}>
+    <TransitionLink
+      style={style}
+      to={linkWithLanguage}
+      exit={exit}
+      entry={entry}
+    >
       {children}
     </TransitionLink>
   );

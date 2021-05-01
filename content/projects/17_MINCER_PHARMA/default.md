@@ -1,5 +1,6 @@
 ---
 slug: "mincer_pharma"
+order: 10
 producer: "Mincer"
 product: "Mincer"
 heading: "Rebranding. Odwaga odrzucenia wszystkiego poza nazwą."
@@ -16,15 +17,6 @@ occurrence:
     - "text"
     - "text"
 ---
-Kosmetyczna marka Mincer Pharma istniała od 1989 roku. Mimo
-profesjonalnych formuł i zaawansowanych technologicznie
-kosmetyków była jedną z wielu niezauważalnych marek. Nawet niska
-cena jej nie pomagała. Z roku na rok traciła udziały rynkowe.
-
-Dopiero nowa identyfikacja i profesjonalny, farmaceutyczny look
-opakowań odmieniły trend spadkowy. Mincer Pharma dostał nowego
-wiatru w żagle. Prosty i bardzo wyrazisty system opakowań spotkał się
-z uznaniem konsumentek, a sprzedaż notowała czterocyfrowe
-wzrosty.
+Kosmetyczna marka Mincer Pharma istniała od 1989 roku. Mimo profesjonalnych formuł i zaawansowanych technologicznie kosmetyków była jedną z wielu niezauważalnych marek. Nawet niska cena jej nie pomagała. Z roku na rok traciła udziały rynkowe. Dopiero nowa identyfikacja i profesjonalny, farmaceutyczny look opakowań odmieniły trend spadkowy. Mincer Pharma dostał nowego wiatru w żagle. Prosty i bardzo wyrazisty system opakowań spotkał się z uznaniem konsumentek, a sprzedaż notowała czterocyfrowe wzrosty.
 
   

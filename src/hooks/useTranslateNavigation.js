@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { I18nextContext } from "gatsby-plugin-react-i18next";
+import { I18nextContext, useTranslation } from "gatsby-plugin-react-i18next";
 import { useQueryMdPages } from "./useQueryMdPages";
 import {
   convertToSlugAlternates,
@@ -9,6 +9,7 @@ import {
 
 export function useTranslateNavigation(navigationElements) {
   const { language, path } = React.useContext(I18nextContext);
+  const { t } = useTranslation();
   const fixedPath = path[0] === "/" ? path.slice(1) : path;
 
   const response = useQueryMdPages();
@@ -21,7 +22,7 @@ export function useTranslateNavigation(navigationElements) {
 
   return navigationElements.map((element) => ({
     language,
-    to: translateOriginalPathToLanguage(element.route, language),
-    label: element.label,
+    to: translateOriginalPathToLanguage(element, language),
+    label: t(element),
   }));
 }

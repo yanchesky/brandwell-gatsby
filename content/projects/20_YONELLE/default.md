@@ -1,5 +1,6 @@
 ---
 slug: "yonelle"
+order: 9
 producer: "Yonelle"
 product: "Yonelle"
 heading: "Ekskluzywnie i z klasą. W każdym calu."

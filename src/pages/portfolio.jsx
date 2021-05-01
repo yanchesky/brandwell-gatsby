@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import AnimatedLink from "src/components/AnimatedLinkPageTransitionWrapper";
 import ProjectThumbnail from "../components/ProjectThumbnail";
+import ProjectThumbnails from "../components/ProjectThumbnails";
 import { media } from "src/helpers";
 
 const Title = styled.h1`
@@ -52,27 +53,13 @@ const formatProjectsQueryResponse = (data) => {
 
 const Portfolio = ({ data }) => {
   const projects = formatProjectsQueryResponse(data);
-  const language = getCurrentLanguage(data);
-
-  console.log("projects:", projects);
+  const sortedProjects = projects.sort((a, b) => a.order - b.order);
 
   return (
     <div>
       <Title>Portfolio</Title>
-      <ThumbnailsWrapper>
-        {projects.map(({ thumbnail, slug, producer, categories }) => {
-          return (
-            <AnimatedLink to={`/portfolio/${slug}`}>
-              <ProjectThumbnail
-                alt={"sdsd"}
-                image={thumbnail}
-                producer={producer}
-                categories={categories}
-              />
-            </AnimatedLink>
-          );
-        })}
-      </ThumbnailsWrapper>
+
+      <ProjectThumbnails />
     </div>
   );
 };
@@ -104,6 +91,7 @@ export const query = graphql`
                 producer
                 product
                 title
+                order
                 thumbnail {
                   childImageSharp {
                     gatsbyImageData(

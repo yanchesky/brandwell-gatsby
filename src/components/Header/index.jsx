@@ -8,6 +8,7 @@ import AnimatedLink from "../AnimatedLinkPageTransitionWrapper";
 
 const Logo = styled.img`
   z-index: 5;
+  margin: auto;
 `;
 
 const MainWrapper = styled.div`
@@ -15,15 +16,12 @@ const MainWrapper = styled.div`
   padding: 3rem 1rem;
   max-width: ${(props) => props.theme.sizes.maxWidth};
   margin: auto;
-  ${media.desktop`
-    align-items: baseline;
-  `}
 `;
 
 const Header = () => {
   return (
     <MainWrapper>
-      <AnimatedLink to={`/portfolio/`}>
+      <AnimatedLink style={{ display: "flex" }} to={`/portfolio/`}>
         <Logo alt="logo" src={brandwell_logo} />
       </AnimatedLink>
       <Navigation />

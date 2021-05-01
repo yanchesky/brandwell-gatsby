@@ -9,6 +9,8 @@ import {
 } from "src/helpers";
 import Layout from "../layouts/main";
 import { media } from "src/helpers";
+import { useTranslation, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import ProjectThumbnails from "../components/ProjectThumbnails";
 
 const InfoWrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.maxWidth};
@@ -27,10 +29,43 @@ const Info = styled.span`
 
 const Paragraph = styled.p`
   font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
+
   max-width: 1138px;
   text-align: center;
   margin: 3rem auto;
   padding: 0 2rem;
+
+  ${(props) =>
+    props.isBold &&
+    `
+        font-size: 2rem;
+        font-weight: 700;
+      `}
+
+  ${media.mobile`
+    margin: 10rem auto;
+    font-size: ${(props) => (props.isSmall ? "1.5rem" : "2.25rem")};
+    ${(props) =>
+      props.isBold &&
+      `
+        font-size: 4rem;
+        font-weight: 700;
+      `}
+  `}
+`;
+
+const Wrapper = styled.div``;
+
+const OrderedList = styled.ol`
+  font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
+  max-width: 1138px;
+  text-align: center;
+  margin: 3rem auto;
+  padding: 0 2rem;
+
+  > li {
+    margin: 3rem 0;
+  }
 
   ${media.mobile`
     margin: 10rem auto;
@@ -48,6 +83,26 @@ const Heading = styled.h1`
     font-size: 4rem;
     margin: 5rem auto;
   `}
+`;
+
+const ScopeOfWork = styled.div`
+  text-align: center;
+  margin: 10rem auto;
+  font-size: 1.125rem;
+
+  span {
+    display: inline-block;
+    margin-left: 0.5rem;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
+    & ~ span {
+      padding-left: 0.5rem;
+      border-left: 1px solid black;
+    }
+  }
 `;
 
 const StyledImage = styled(GatsbyImage)`
@@ -86,7 +141,6 @@ const StyledImage = styled(GatsbyImage)`
 `;
 
 const renderImage = ({ value, type }) => {
-  console.log("value:", value);
   const ratios = getArtDirectedAspectRatios(value);
   const artDirectedImages = getArtDirectedImages(value);
   const artDirectedImage = withArtDirection(
@@ -107,13 +161,30 @@ const renderImage = ({ value, type }) => {
 };
 
 const renderText = ({ value, type }) => {
-  return <Paragraph isSmall={type === "small-text"}>{value}</Paragraph>;
+  if (typeof value === "string") {
+    return (
+      <Paragraph isBold={type === "bold-text"} isSmall={type === "small-text"}>
+        {value}
+      </Paragraph>
+    );
+  }
+  if (Array.isArray(value)) {
+    return (
+      <OrderedList>
+        {value.map((el, index) => (
+          <li key={index}>{el}</li>
+        ))}
+      </OrderedList>
+    );
+  }
 };
 
 const ProjectTemplate = ({
   data,
   pageContext: { producer, product, categories, occurrence },
 }) => {
+  const { t } = useTranslation();
+
   const {
     markdownRemark: { frontmatter, html, htmlAst },
     desktopImages: { edges: desktopEdges },
@@ -135,7 +206,16 @@ const ProjectTemplate = ({
 
   const paragraphs = htmlAst.children
     .filter((el) => !!el.children)
-    .map(({ children }) => children[0].value);
+    .map(({ children, tagName }) => {
+      if (tagName === "p") {
+        return children[0].value;
+      }
+      if (tagName === "ol") {
+        return children
+          .filter((el) => !!el.children)
+          .map((el) => el.children[0].value);
+      }
+    });
 
   const orderedTextAndImages = occurrence.map((blockType) => {
     switch (blockType) {
@@ -144,9 +224,9 @@ const ProjectTemplate = ({
           type: "text",
           value: paragraphs.shift(),
         };
-      case "small-text":
+      case "bold-text":
         return {
-          type: "small-text",
+          type: "bold-text",
           value: paragraphs.shift(),
         };
       case "image":
@@ -168,14 +248,8 @@ const ProjectTemplate = ({
     }
   });
 
-  console.log("orderedTextAndImages:", orderedTextAndImages);
-
   return (
-    <div>
-      <InfoWrapper>
-        <Info bold>{frontmatter.producer}</Info>
-        <Info>{frontmatter.product}</Info>
-      </InfoWrapper>
+    <Wrapper>
       <Heading>{frontmatter.heading}</Heading>
       {[...orderedTextAndImages, ...images].map((content) => {
         switch (content.type) {
@@ -190,13 +264,20 @@ const ProjectTemplate = ({
             return renderImage({ value: content });
         }
       })}
-    </div>
+      <ScopeOfWork>
+        Zakres prac:
+        {categories.map((category) => (
+          <span>{t(category)}</span>
+        ))}
+      </ScopeOfWork>
+      <ProjectThumbnails filterFrom={frontmatter.order} />
+    </Wrapper>
   );
 };
 
 export const pageQuery = graphql`
-  query($slugg: String!, $relativeDirectory: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slugg } }) {
+  query($relativeDirectory: String!, $language: String!, $id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       htmlAst
       frontmatter {
@@ -205,8 +286,21 @@ export const pageQuery = graphql`
         product
         heading
         occurrence
+        categories
+        order
       }
     }
+
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+
     desktopImages: allFile(
       filter: {
         relativePath: { regex: $relativeDirectory }
