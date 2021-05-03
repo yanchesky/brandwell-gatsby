@@ -44,7 +44,6 @@ const formatProjectsQueryResponse = (data, chosenLanguage) => {
 const ProjectThumbnails = ({ filterFrom = 0 }) => {
   const data = useQueryProjects();
   const { language } = React.useContext(I18nextContext);
-  console.log("filterFrom:", filterFrom);
   const projects = formatProjectsQueryResponse(data, language);
   const sortedProjects = projects
     .sort((a, b) => a.order - b.order)

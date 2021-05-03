@@ -24,6 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   product
                   producer
                   occurrence
+                  order
                 }
                 html
               }
@@ -48,11 +49,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  const {
-    projectsSlug,
-    defaultLanguage,
-    languages,
-  } = result.data.site.siteMetadata;
+  const { projectsSlug, languages } = result.data.site.siteMetadata;
 
   result.data.projects.group.forEach(({ edges }) => {
     const pageLanguageVariants = edges.reduce((prev, curr) => {
@@ -67,7 +64,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       };
     }, {});
 
-    const { occurrence, categories } = pageLanguageVariants["default"];
+    const { occurrence, categories, order } = pageLanguageVariants["default"]; // universal properties for all languages
 
     languages.forEach((language) => {
       const { slug, id } =
@@ -86,6 +83,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           locale: language,
           categories,
           occurrence,
+          order,
           language,
         },
       });

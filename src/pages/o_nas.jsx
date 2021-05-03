@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "../layouts/main";
 import { graphql } from "gatsby";
 import { media } from "src/helpers/breakpoints";
+import { useTranslation, Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const Wrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.textMaxWidth};
@@ -94,76 +95,47 @@ const Wrapper = styled.div`
 `;
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
-      <h1>
-        Brandwell to agencja brandingowa. Od 12 lat tworzymy lub odświeżamy
-        marki, projektujemy identyfikacje i opakowania.{" "}
-      </h1>
-      <h2>Co robimy?</h2>
+      <h1>{t("mainHeading")}</h1>
+      <h2>{t("heading1")}</h2>
       <div>
         <div>
-          <h3>Strategia marki</h3>
-          <p>Audyt portfolio marki</p>
-          <p>Architektura marki</p>
-          <p>Pozycjonowanie marki</p>
+          <h3>{t("what_we_do.block1.1")}</h3>
+          <p>{t("what_we_do.block1.2")}</p>
+          <p>{t("what_we_do.block1.3")}</p>
+          <p>{t("what_we_do.block1.4")}</p>
         </div>
         <div>
-          <h3>Projektowanie marki</h3>
-          <p>Projektowanie Logo</p>
-          <p>Identyfikacja Wizualna</p>
+          <h3>{t("what_we_do.block2.1")}</h3>
+          <p>{t("what_we_do.block2.2")}</p>
+          <p>{t("what_we_do.block2.3")}</p>
         </div>
         <div>
-          <h3>Projektowanie opakowań</h3>
-          <p>Kreacja Nazw</p>
-          <p>Projektowanie opakowań</p>
-          <p>DTP. Przygotowanie do druku</p>
+          <h3>{t("what_we_do.block3.1")}</h3>
+          <p>{t("what_we_do.block3.2")}</p>
+          <p>{t("what_we_do.block3.3")}</p>
+          <p>{t("what_we_do.block3.4")}</p>
         </div>
         <div>
-          <h3>Projektowanie strukturalne</h3>
-          <p>Projektowanie kształtów opakowań</p>
-          <p>Opracowanie dokumentacji produkcyjnej</p>
+          <h3>{t("what_we_do.block4.1")}</h3>
+          <p>{t("what_we_do.block4.2")}</p>
+          <p>{t("what_we_do.block4.3")}</p>
         </div>
       </div>
-      <h2>Jak to robimy?</h2>
+      <h2>{t("heading2")}</h2>
+      <p>{t("how_we_do.paragraph1")}</p>
+      <p>{t("how_we_do.paragraph2")}</p>
+      <h2>{t("heading3")}</h2>
+      <p>{t("process.paragraph1")}</p>
+      <p>{t("process.paragraph2")}</p>
+      <p>{t("process.paragraph3")}</p>
+      <h2>{t("heading4")}</h2>
       <p>
-        Ściśle współpracujemy z naszymi klientami. Uważamy, że partnerstwo
-        i wzajemne zaufanie jest fundamentem w budowaniu prawdziwych wartości.
-        Klienci przekazują nam wiedzę o swojej branży, specyfice swoich klientów
-        i kluczowych parametrach jakimi kierują się w procesie wyboru. My
-        wskazujemy jak do nich dotrzeć.
-      </p>
-      <p>
-        Projektujemy marki ze świadomością celu – tak, by komunikowały się ze
-        swoimi odbiorcami w adekwatny i atrakcyjny dla nich spostób. Nie
-        tworzymy jedynie kolorowych obrazków. Nasze projekty to przemyślane
-        narzędzia do skutecznej rywalizacji o klienta.
-      </p>
-      <h2>Proces</h2>
-      <p>
-        Rozpoczynamy od prac strategicznych. Zaczynamy od zdefiniowania miejsca
-        w którym znajduje się marka. Określamy jej grupę kluczowych odbiorców.
-        Odtwarzamy ich świat, by łatwiej zrozumieć ich prawdziwe potrzeby.
-        Szukamy unikalnych cech marki, by zbudować w jej oparciu przewagę
-        rynkową.{" "}
-      </p>
-      <p>
-        Dzięki poprzedzeniu prac kreatywnych analizami strategicznymi tworzymy
-        świadomie. Jesteśmy artystami, ale nie oderwanymi od biznesowej
-        rzeczywistości. Według nas projekty mają odzwierciedlać zawarte
-        w strategii cele i być dopasowane dla grupy docelowej.
-      </p>
-      <p>
-        Realizacja. Łączymy kompetencje wielu osób, tak by uzyskać jak najlepszy
-        efekt. Organizujemy sesje fotograficzne, zatrudniamy najlepszych
-        ilustratorów, zdolnych copywriterów, art directorów i typografów.
-        Finalnie przygotowujemy prace do druku.
-      </p>
-      <h2>Czego nie robimy?</h2>
-      <p>
-        <strong>Nie bierzemy udziału w bezpłatnych przetargach.</strong> Nie
-        stronimy od udziału w konkursach, ale bierzemy w nich udział pod
-        warunkiem, że nasza praca zostanie opłacona.
+        <strong>{t("what_we_dont.bold")}</strong>
+        {t("what_we_dont.paragraph1")}
       </p>
     </Wrapper>
   );

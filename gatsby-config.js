@@ -39,6 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
+        ns: ["other", "translation"],
         defaultNS: "translation",
         localeJsonSourceName: `locales`, // name given to `gatsby-source-filesystem` plugin.
         languages: settings.languages,

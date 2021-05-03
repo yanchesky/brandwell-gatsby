@@ -30,10 +30,6 @@ const ThumbnailsWrapper = styled.div`
   `}
 `;
 
-const getCurrentLanguage = (data) => {
-  return data.locales.edges[0].node.language;
-};
-
 const formatProjectsQueryResponse = (data) => {
   const chosenLanguage = data.locales.edges[0].node.language;
   const languageForSearch =
@@ -51,14 +47,10 @@ const formatProjectsQueryResponse = (data) => {
   return formattedProjects;
 };
 
-const Portfolio = ({ data }) => {
-  const projects = formatProjectsQueryResponse(data);
-  const sortedProjects = projects.sort((a, b) => a.order - b.order);
-
+const Portfolio = () => {
   return (
-    <div>
+    <div style={{ background: "white" }}>
       <Title>Portfolio</Title>
-
       <ProjectThumbnails />
     </div>
   );
@@ -74,38 +66,6 @@ export const query = graphql`
           ns
           data
           language
-        }
-      }
-    }
-    projects: allFile(
-      filter: { relativePath: { regex: "/projects/" }, extension: { eq: "md" } }
-    ) {
-      group(field: relativeDirectory) {
-        edges {
-          node {
-            relativeDirectory
-            childMarkdownRemark {
-              frontmatter {
-                slug
-                categories
-                producer
-                product
-                title
-                order
-                thumbnail {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 415
-                      height: 415
-                      jpgOptions: { quality: 100 }
-                      quality: 100
-                    )
-                  }
-                }
-              }
-            }
-            name
-          }
         }
       }
     }

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   &:hover {
     > div {
       transform: translateY(0);
-      transition: 0.3s cubic-bezier(0.01, 0.75, 0.33, 0.99);
+      transition: 0.4s cubic-bezier(0.01, 0.75, 0.33, 0.99);
     }
   }
 `;
@@ -25,7 +25,7 @@ const DescriptionContainer = styled.div`
   background: white;
   text-align: center;
   padding: 1.25rem;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 
   div {
     display: flex;

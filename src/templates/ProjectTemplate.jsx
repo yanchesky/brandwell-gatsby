@@ -181,7 +181,7 @@ const renderText = ({ value, type }) => {
 
 const ProjectTemplate = ({
   data,
-  pageContext: { producer, product, categories, occurrence },
+  pageContext: { producer, product, categories, occurrence, order },
 }) => {
   const { t } = useTranslation();
 
@@ -270,7 +270,7 @@ const ProjectTemplate = ({
           <span>{t(category)}</span>
         ))}
       </ScopeOfWork>
-      <ProjectThumbnails filterFrom={frontmatter.order} />
+      <ProjectThumbnails filterFrom={order} />
     </Wrapper>
   );
 };
