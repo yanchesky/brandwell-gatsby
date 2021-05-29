@@ -13,9 +13,12 @@ export const GlobalStyle = createGlobalStyle`
     ul, li, body, p, h1 {
         list-style: none;
     }
+    
+    body{
+        overflow-x: hidden;
+    }
   
     html{
         scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
     }
 `;

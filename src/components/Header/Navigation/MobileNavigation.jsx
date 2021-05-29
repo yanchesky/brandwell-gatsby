@@ -22,9 +22,10 @@ const LinksWrapper = styled.nav`
   position: relative;
   display: flex;
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: 0rem;
   ${media.desktop`
    //display: none;
+   margin-right: 2rem;
   `}
 `;
 
@@ -75,6 +76,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const hideHamburgerMenu = () => {
+  const checkbox = document.querySelector(".checkbox-toggle");
+  checkbox.checked = false;
+};
+
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
   const { language, languages, path } = React.useContext(I18nextContext);
@@ -99,7 +105,7 @@ const MobileNavigation = () => {
           <div />
         </HamburgerIconWrapper>
         <HamburgerLinksWrapper>
-          <div>
+          <div onClick={hideHamburgerMenu}>
             <div>
               <LinksList>
                 {translatedNavLinks.map(({ language, to, label }, index) => (

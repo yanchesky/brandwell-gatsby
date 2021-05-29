@@ -47,7 +47,8 @@ const ProjectThumbnails = ({ filterFrom = 0 }) => {
   const projects = formatProjectsQueryResponse(data, language);
   const sortedProjects = projects
     .sort((a, b) => a.order - b.order)
-    .filter((project) => project.order > filterFrom);
+    .filter((project) => project.order > filterFrom)
+    .concat(projects.filter((project) => project.order < filterFrom));
 
   return (
     <ThumbnailsWrapper>

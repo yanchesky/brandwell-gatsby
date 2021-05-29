@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Layout from "../layouts/main";
 import { graphql } from "gatsby";
 import { media } from "src/helpers/breakpoints";
-import { useTranslation, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Wrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.textMaxWidth};
@@ -134,8 +133,7 @@ const AboutUs = () => {
       <p>{t("process.paragraph3")}</p>
       <h2>{t("heading4")}</h2>
       <p>
-        <strong>{t("what_we_dont.bold")}</strong>
-        {t("what_we_dont.paragraph1")}
+        <strong>{t("what_we_dont.bold")}</strong> {t("what_we_dont.paragraph1")}
       </p>
     </Wrapper>
   );

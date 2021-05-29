@@ -1,69 +1,33 @@
 import React from "react";
-import styled from "styled-components";
 import { graphql } from "gatsby";
-import Layout from "src/layouts/main";
-import { useTranslation, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import styled from "styled-components";
+import ProjectThumbnails from "../components/ProjectThumbnails";
+import WelcomeScreen from "../components/WelcomeScreen";
 
-const Wrapper = styled.div`
-  color: ${(props) => props.theme.colors["gray-400"]};
+const Title = styled.h1`
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 `;
 
-// markup
-const IndexPage = (props) => {
-  const groupedPages = props.data.pagesData.edges
-    .filter(({ node }) => node.isCreatedByStatefulCreatePages)
-    .reduce((prev, { node }) => {
-      return {
-        ...prev,
-        [node.context.i18n.originalPath]: {
-          ...(prev?.[node.context.i18n.originalPath] || {}),
-          [node.context.i18n.language]: node.path,
-        },
-      };
-    }, {});
+const Wrapper = styled.div`
+  background: white;
+  transition: 1s all ease;
+  //transform: translateY(100vh);
+`;
 
-  // const groupedMdPages = props.data.pagesData.edges
-  //   .filter(({ node }) => !node.isCreatedByStatefulCreatePages)
-  //   .reduce((prev, { node }) => {
-  //     return {
-  //       ...prev,
-  //       [node.context.relativeDirectory]: {
-  //         ...(prev?.[node.context.relativeDirectory] || {}),
-  //         [node.context.i18n.language]: node.path,
-  //       },
-  //     };
-  //   }, {});
-  //
-  // console.log("groupedMdPages:", groupedMdPages);
-
-  // const mdPagesSitemap = Object.entries(groupedMdPages).map(([_, val]) => {
-  //   return {
-  //     url: "site.siteMetadata.siteUrl" + val["pl"],
-  //     changefreq: "monthly",
-  //     priority: 0.5,
-  //     links: [
-  //       {
-  //         lang: "x-default",
-  //         url: `${"site.siteMetadata.siteUrl"}${val["pl"]}`,
-  //       },
-  //       ...Object.entries(val).map(([lang, translatedLink]) => {
-  //         return {
-  //           lang,
-  //           url: `${"site.siteMetadata.siteUrl"}${translatedLink}`,
-  //         };
-  //       }),
-  //     ],
-  //   };
-  // });
-  //
-  // console.log("groupedMdPages:", groupedMdPages);
-  // console.log("groupedPages:", groupedPages);
-  // console.log("mdPagesSitemap:", mdPagesSitemap);
-
-  return <Wrapper>main</Wrapper>;
+const Index = () => {
+  return (
+    <div style={{ overflow: "hidden" }}>
+      <Wrapper id="main-page-wrapper">
+        <Title>Portfolio</Title>
+        <ProjectThumbnails />
+      </Wrapper>
+    </div>
+  );
 };
 
-export default IndexPage;
+export default Index;
 
 export const query = graphql`
   query($language: String!) {
@@ -73,24 +37,6 @@ export const query = graphql`
           ns
           data
           language
-        }
-      }
-    }
-    pagesData: allSitePage {
-      edges {
-        node {
-          path
-          isCreatedByStatefulCreatePages
-          context {
-            slugg
-            locale
-            i18n {
-              language
-              originalPath
-              routed
-            }
-            relativeDirectory
-          }
         }
       }
     }

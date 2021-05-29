@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HamburgerWrapper = styled.div`
   z-index: 1;
-  width: 65px;
+  width: 50px;
   height: 60px;
 `;
 
@@ -24,9 +24,9 @@ export const HamburgerIconWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  width: 65px;
+  width: 50px;
   height: 60px;
-  padding: 0.5em 1em;
+  padding: 0.5rem;
   border-radius: 0 0.12em 0.12em 0;
   cursor: pointer;
   transition: box-shadow 0.4s ease;

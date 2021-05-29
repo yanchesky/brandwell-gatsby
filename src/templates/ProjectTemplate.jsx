@@ -7,25 +7,10 @@ import {
   getArtDirectedAspectRatios,
   reduceImageQueryResult,
 } from "src/helpers";
-import Layout from "../layouts/main";
+
 import { media } from "src/helpers";
-import { useTranslation, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import ProjectThumbnails from "../components/ProjectThumbnails";
-
-const InfoWrapper = styled.div`
-  max-width: ${(props) => props.theme.sizes.maxWidth};
-  padding: 0 1rem;
-  margin: auto;
-`;
-
-const Info = styled.span`
-  font-family: "Roboto", sans-serif;
-  ${(props) => props.bold && "font-weight: bold"};
-
-  & + span {
-    margin-left: 0.5rem;
-  }
-`;
 
 const Paragraph = styled.p`
   font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
