@@ -84,7 +84,6 @@ const hideHamburgerMenu = () => {
 
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { pathname } = useLocation();
   const isMainPage = pathname.length <= 4;
   const { language } = React.useContext(I18nextContext);
@@ -98,10 +97,6 @@ const MobileNavigation = () => {
       hamburgerMenuCheckbox.current.checked = true;
     }
   }, [pathname.length]);
-
-  React.useEffect(() => {
-    hamburgerMenuCheckbox.current.checked = !isMenuOpen;
-  }, [isMenuOpen]);
 
   const closeHamburgerMenu = () => {
     hamburgerMenuCheckbox.current.checked = false;
@@ -119,7 +114,6 @@ const MobileNavigation = () => {
       <HamburgerWrapper>
         <HamburgerCheckbox
           onClick={(e) => {
-            console.log("e.target.checked:", e.target.checked);
             const body = document.querySelector("body");
             body.style.overflow = e.target.checked ? "hidden" : "initial";
           }}
