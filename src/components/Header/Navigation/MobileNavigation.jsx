@@ -84,9 +84,10 @@ const hideHamburgerMenu = () => {
 
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { pathname } = useLocation();
-  const isMainPage = pathname.length === 4;
-  const { language, languages, path } = React.useContext(I18nextContext);
+  const isMainPage = pathname.length <= 4;
+  const { language } = React.useContext(I18nextContext);
 
   React.useEffect(() => {
     hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
@@ -98,8 +99,15 @@ const MobileNavigation = () => {
     }
   }, [pathname.length]);
 
-  const closeHamburgerMenu = () =>
-    (hamburgerMenuCheckbox.current.checked = false);
+  React.useEffect(() => {
+    hamburgerMenuCheckbox.current.checked = !isMenuOpen;
+  }, [isMenuOpen]);
+
+  const closeHamburgerMenu = () => {
+    hamburgerMenuCheckbox.current.checked = false;
+    const body = document.querySelector("body");
+    body.style.overflow = "initial";
+  };
 
   const translatedNavLinks = useTranslateNavigation(navigationElements);
   const { englishTranslation, polishTranslation } = useTranslateLanguagesPicker(
@@ -109,7 +117,15 @@ const MobileNavigation = () => {
   return (
     <LinksWrapper>
       <HamburgerWrapper>
-        <HamburgerCheckbox type="checkbox" className="checkbox-toggle" />
+        <HamburgerCheckbox
+          onClick={(e) => {
+            console.log("e.target.checked:", e.target.checked);
+            const body = document.querySelector("body");
+            body.style.overflow = e.target.checked ? "hidden" : "initial";
+          }}
+          type="checkbox"
+          className="checkbox-toggle"
+        />
         <HamburgerIconWrapper>
           <div />
         </HamburgerIconWrapper>

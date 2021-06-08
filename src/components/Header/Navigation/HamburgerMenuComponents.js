@@ -146,9 +146,6 @@ export const HamburgerCheckbox = styled.input`
   opacity: 0;
 
   &:checked + ${HamburgerIconWrapper} {
-    body {
-      overflow: hidden;
-    }
     > div {
       transform: rotate(135deg);
 

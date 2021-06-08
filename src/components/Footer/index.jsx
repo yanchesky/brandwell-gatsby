@@ -4,6 +4,7 @@ import { media } from "src/helpers";
 import facebook from "src/assets/svg/facebook_icon.svg";
 import instagram from "src/assets/svg/insta_icon.svg";
 import linkedin from "src/assets/svg/linkedin_icon.svg";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const SocialIcon = styled.img`
   margin: 0 1.25rem;
@@ -48,11 +49,12 @@ const SocialWrapper = styled.div`
 `;
 
 const Index = () => {
+  const { t } = useTranslation();
   return (
     <Footer>
-      <span>Napisz do nas</span>
+      <span>{t("write_to_us")}</span>
       <a href="mailto:info@brandwell.pl">info@brandwell.pl</a>
-      <span>lub zadzwoń</span>
+      <span>{t("or_call")}</span>
       <a href="tel:+48606735725">+48606735725</a>
       <p>We will be pleased to welcome you on our socials</p>
       <SocialWrapper>
