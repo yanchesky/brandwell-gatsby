@@ -3,6 +3,7 @@ import {
   useTranslateLanguagesPicker,
   useTranslateNavigation,
 } from "../../../hooks";
+import { useLocation } from "@reach/router";
 import { navigationElements } from "./navgationElements";
 import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
@@ -83,11 +84,19 @@ const hideHamburgerMenu = () => {
 
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
+  const { pathname } = useLocation();
+  const isMainPage = pathname.length === 4;
   const { language, languages, path } = React.useContext(I18nextContext);
 
   React.useEffect(() => {
     hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
   }, []);
+
+  React.useEffect(() => {
+    if (isMainPage) {
+      hamburgerMenuCheckbox.current.checked = true;
+    }
+  }, [pathname.length]);
 
   const closeHamburgerMenu = () =>
     (hamburgerMenuCheckbox.current.checked = false);
@@ -121,6 +130,9 @@ const MobileNavigation = () => {
                 ))}
                 <li>
                   <LanguageLink
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     language={language === "pl" ? "en" : "pl"}
                     to={
                       language === "pl" ? englishTranslation : polishTranslation

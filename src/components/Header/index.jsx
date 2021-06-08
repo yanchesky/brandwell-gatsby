@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <MainWrapper>
       {/*<WelcomeScreen />*/}
-      <AnimatedLink style={{ display: "flex" }} to={`/portfolio/`}>
+      <AnimatedLink style={{ display: "flex" }} to={`/`}>
         <Logo alt="logo" src={brandwell_logo} />
       </AnimatedLink>
       <Navigation />

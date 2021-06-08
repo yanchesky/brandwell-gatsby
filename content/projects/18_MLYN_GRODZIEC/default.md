@@ -1,5 +1,5 @@
 ---
-slug: "młyn-grodziec"
+slug: "młyn_grodziec"
 order: 15
 producer: "Młyn Grodziec"
 product: "Mąka Grodziecka"

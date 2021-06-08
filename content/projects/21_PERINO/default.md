@@ -3,7 +3,7 @@ slug: "perino"
 order: 14
 producer: "Perino"
 product: "Perino"
-heading: "Koherencja smaku, tradycji i pochodzenia."
+heading: "Koherencja"
 categories:
     - "brand.logo"
     - "packaging"

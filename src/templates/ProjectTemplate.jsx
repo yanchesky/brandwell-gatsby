@@ -11,6 +11,7 @@ import {
 import { media } from "src/helpers";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import ProjectThumbnails from "../components/ProjectThumbnails";
+import PizzaDoughRecipe from "../components/PizzaDoughRecipe";
 
 const Paragraph = styled.p`
   font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
@@ -166,10 +167,9 @@ const renderText = ({ value, type }) => {
 
 const ProjectTemplate = ({
   data,
-  pageContext: { producer, product, categories, occurrence, order },
+  pageContext: { slugg, producer, product, categories, occurrence, order },
 }) => {
   const { t } = useTranslation();
-
   const {
     markdownRemark: { frontmatter, html, htmlAst },
     desktopImages: { edges: desktopEdges },
@@ -233,6 +233,8 @@ const ProjectTemplate = ({
     }
   });
 
+  const isItGrodziec = slugg === "mlyn_grodziec" || slugg === "młyn_grodziec";
+
   return (
     <Wrapper>
       <Heading>{frontmatter.heading}</Heading>
@@ -249,6 +251,7 @@ const ProjectTemplate = ({
             return renderImage({ value: content });
         }
       })}
+      {isItGrodziec && <PizzaDoughRecipe />}
       <ScopeOfWork>
         Zakres prac:
         {categories.map((category) => (

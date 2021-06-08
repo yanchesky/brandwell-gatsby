@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import ProjectThumbnails from "../components/ProjectThumbnails";
-import WelcomeScreen from "../components/WelcomeScreen";
 
 const Title = styled.h1`
   text-align: center;
@@ -12,17 +10,13 @@ const Title = styled.h1`
 
 const Wrapper = styled.div`
   background: white;
-  transition: 1s all ease;
-  //transform: translateY(100vh);
+  height: 20vh;
 `;
 
 const Index = () => {
   return (
     <div style={{ overflow: "hidden" }}>
-      <Wrapper id="main-page-wrapper">
-        <Title>Portfolio</Title>
-        <ProjectThumbnails />
-      </Wrapper>
+      <Wrapper id="main-page-wrapper" />
     </div>
   );
 };

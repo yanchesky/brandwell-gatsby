@@ -173,7 +173,7 @@ export const HamburgerCheckbox = styled.input`
         > div {
           opacity: 1;
           transform: scale(1);
-          transition: all 0.4s ease 0.4s;
+          transition: all 0.75s ease 0.4s;
         }
       }
     }
