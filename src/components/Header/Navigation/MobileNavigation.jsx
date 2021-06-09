@@ -77,11 +77,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const hideHamburgerMenu = () => {
-  const checkbox = document.querySelector(".checkbox-toggle");
-  checkbox.checked = false;
-};
-
 const MobileNavigation = () => {
   const hamburgerMenuCheckbox = React.useRef();
   const { pathname } = useLocation();
@@ -101,7 +96,7 @@ const MobileNavigation = () => {
   const closeHamburgerMenu = () => {
     hamburgerMenuCheckbox.current.checked = false;
     const body = document.querySelector("body");
-    body.style.overflow = "initial";
+    body.style.overflow = "scroll";
   };
 
   const translatedNavLinks = useTranslateNavigation(navigationElements);
@@ -124,7 +119,7 @@ const MobileNavigation = () => {
           <div />
         </HamburgerIconWrapper>
         <HamburgerLinksWrapper>
-          <div onClick={hideHamburgerMenu}>
+          <div onClick={closeHamburgerMenu}>
             <div>
               <LinksList>
                 {translatedNavLinks.map(({ language, to, label }, index) => (

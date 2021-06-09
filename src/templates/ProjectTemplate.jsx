@@ -105,7 +105,7 @@ const StyledImage = styled(GatsbyImage)`
         `
       : `max-width: ${props.theme.sizes.maxWidth}`};
 
-  margin: 0 auto;
+  margin: 0.5rem auto;
 
   ${(props) =>
     props.ratios.mobile &&
