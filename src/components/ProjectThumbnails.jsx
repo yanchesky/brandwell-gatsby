@@ -57,7 +57,7 @@ const ProjectThumbnails = ({ filterFrom = 0 }) => {
           return (
             <AnimatedLink key={index} to={`/portfolio/${slug}`}>
               <ProjectThumbnail
-                alt={"sdsd"}
+                alt={slug}
                 image={thumbnail}
                 producer={producer}
                 categories={categories}
@@ -71,49 +71,3 @@ const ProjectThumbnails = ({ filterFrom = 0 }) => {
 };
 
 export default ProjectThumbnails;
-
-export const query = graphql`
-  query($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    projects: allFile(
-      filter: { relativePath: { regex: "/projects/" }, extension: { eq: "md" } }
-    ) {
-      group(field: relativeDirectory) {
-        edges {
-          node {
-            relativeDirectory
-            childMarkdownRemark {
-              frontmatter {
-                slug
-                categories
-                producer
-                product
-                title
-                order
-                thumbnail {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 415
-                      height: 415
-                      jpgOptions: { quality: 100 }
-                      quality: 100
-                    )
-                  }
-                }
-              }
-            }
-            name
-          }
-        }
-      }
-    }
-  }
-`;

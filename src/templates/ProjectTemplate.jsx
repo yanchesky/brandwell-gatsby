@@ -15,19 +15,18 @@ import PizzaDoughRecipe from "../components/PizzaDoughRecipe";
 
 const Paragraph = styled.p`
   font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
-
+  font-weight: normal;
   max-width: 1138px;
   text-align: center;
   margin: 3rem auto;
   padding: 0 2rem;
-
+  -webkit-text-size-adjust: none;
   ${(props) =>
     props.isBold &&
     `
         font-size: 2rem;
         font-weight: 700;
       `}
-
   ${media.mobile`
     margin: 10rem auto;
     font-size: ${(props) => (props.isSmall ? "1.5rem" : "2.25rem")};
@@ -37,7 +36,7 @@ const Paragraph = styled.p`
         font-size: 4rem;
         font-weight: 700;
       `}
-  `}
+  `};
 `;
 
 const Wrapper = styled.div``;
@@ -73,8 +72,14 @@ const Heading = styled.h1`
 
 const ScopeOfWork = styled.div`
   text-align: center;
-  margin: 10rem auto;
+  margin: 10rem 2rem 5rem;
+  padding-bottom: 5rem;
   font-size: 1.125rem;
+  border-bottom: 1px solid black;
+
+  ${media.tablet`
+    border-bottom: none;
+  `}
 
   span {
     display: inline-block;

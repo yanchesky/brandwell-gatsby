@@ -63,7 +63,7 @@ const Steps = styled.ol`
 
 const PizzaDoughRecipe = () => {
   const { t } = useTranslation();
-  console.log("rendered");
+
   return (
     <Wrapper>
       <Heading>{t("pizza.mainHeading")}</Heading>
@@ -89,27 +89,3 @@ const PizzaDoughRecipe = () => {
 };
 
 export default PizzaDoughRecipe;
-
-export const query = graphql`
-  query($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    translations: allLocale(filter: { ns: { eq: "pizza_dough" } }) {
-      edges {
-        node {
-          id
-          ns
-          language
-          data
-        }
-      }
-    }
-  }
-`;

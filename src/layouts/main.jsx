@@ -9,7 +9,9 @@ function MainLayout({ children }) {
     <>
       <GlobalStyle />
       <Header />
-      <main className="">{children}</main>
+      <main style={{ paddingTop: "10rem" }} className="">
+        {children}
+      </main>
       <Footer />
     </>
   );

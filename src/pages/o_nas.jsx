@@ -74,7 +74,7 @@ const Wrapper = styled.div`
     `}
 
     ${media.desktop`
-      margin-top: 6rem;
+      margin-top: 2rem;
       justify-content: space-between;
     `}
 
@@ -99,7 +99,7 @@ const AboutUs = () => {
   return (
     <Wrapper>
       <h1>{t("mainHeading")}</h1>
-      <h2>{t("heading1")}</h2>
+      <h2 style={{ marginBottom: "2rem" }}>{t("heading1")}</h2>
       <div>
         <div>
           <h3>{t("what_we_do.block1.1")}</h3>

@@ -13,9 +13,19 @@ const Logo = styled.img`
   margin: auto;
 `;
 
+const Container = styled.div`
+  width: 100%;
+  position: fixed;
+  background: white;
+  margin: auto;
+  z-index: 2;
+`;
+
 const MainWrapper = styled.div`
   display: flex;
-  padding: 3rem 1rem;
+
+  width: 100%;
+  padding: 3rem 1rem 1rem;
   max-width: ${(props) => props.theme.sizes.maxWidth};
   margin: auto;
   overflow-x: hidden;
@@ -23,13 +33,15 @@ const MainWrapper = styled.div`
 
 const Header = () => {
   return (
-    <MainWrapper>
-      {/*<WelcomeScreen />*/}
-      <AnimatedLink style={{ display: "flex" }} to={`/`}>
-        <Logo alt="logo" src={brandwell_logo} />
-      </AnimatedLink>
-      <Navigation />
-    </MainWrapper>
+    <Container>
+      <MainWrapper>
+        {/*<WelcomeScreen />*/}
+        <AnimatedLink style={{ display: "flex" }} to={`/`}>
+          <Logo alt="logo" src={brandwell_logo} />
+        </AnimatedLink>
+        <Navigation />
+      </MainWrapper>
+    </Container>
   );
 };
 

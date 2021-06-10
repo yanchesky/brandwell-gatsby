@@ -78,12 +78,11 @@ export const HamburgerLinksWrapper = styled.div`
   backface-visibility: hidden;
   outline: 1px solid transparent;
   display: flex;
-  align-items: center;
   justify-content: center;
 
   > div {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh + 100px);
     color: black;
     background: rgba(255, 255, 255, 1);
     transition: all 0.7s ease;
