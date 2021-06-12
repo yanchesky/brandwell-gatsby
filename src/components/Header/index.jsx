@@ -31,20 +31,24 @@ const MainWrapper = styled.div`
 
 const Header = () => {
   const prevScrollPos = React.useRef(0);
-  window.onscroll = function () {
-    const currScrollPos = window.pageYOffset;
-    const isScrollingDown = currScrollPos > prevScrollPos.current;
-    prevScrollPos.current = currScrollPos;
-    const header = document.getElementById("header-container");
+  React.useEffect(() => {
+    if (window) {
+      document.addEventListener("scroll", function () {
+        const currScrollPos = window.pageYOffset;
+        const isScrollingDown = currScrollPos > prevScrollPos.current;
+        prevScrollPos.current = currScrollPos;
+        const header = document.getElementById("header-container");
 
-    if (isScrollingDown) {
-      header.style.transform = `translateY(-150px)`;
-    } else if (currScrollPos === 0) {
-      header.style.transform = "translateY(0)";
-    } else {
-      header.style.transform = "translateY(-30px)";
+        if (isScrollingDown) {
+          header.style.transform = `translateY(-150px)`;
+        } else if (currScrollPos === 0) {
+          header.style.transform = "translateY(0)";
+        } else {
+          header.style.transform = "translateY(-30px)";
+        }
+      });
     }
-  };
+  }, []);
   return (
     <Container id="header-container">
       <MainWrapper>
