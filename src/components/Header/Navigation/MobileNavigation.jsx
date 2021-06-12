@@ -110,7 +110,7 @@ const MobileNavigation = () => {
         <HamburgerCheckbox
           onClick={(e) => {
             const body = document.querySelector("body");
-            body.style.overflow = e.target.checked ? "hidden" : "initial";
+            body.style.overflowY = e.target.checked ? "hidden" : "initial";
           }}
           type="checkbox"
           className="checkbox-toggle"
