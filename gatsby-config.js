@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-transformer-remark",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-transition-link",

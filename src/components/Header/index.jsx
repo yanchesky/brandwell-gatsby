@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useLocation } from "@reach/router";
 import brandwell_logo from "src/assets/svg/bradwell_logo.svg";
-import { media } from "src/helpers/breakpoints";
 
 import Navigation from "./Navigation";
 import AnimatedLink from "../AnimatedLinkPageTransitionWrapper";
-import WelcomeScreen from "../WelcomeScreen";
 
 const Logo = styled.img`
   z-index: 5;
@@ -19,11 +16,12 @@ const Container = styled.div`
   background: white;
   margin: auto;
   z-index: 2;
+  top: 0;
+  transition: transform 0.3s;
 `;
 
 const MainWrapper = styled.div`
   display: flex;
-
   width: 100%;
   padding: 3rem 1rem 1rem;
   max-width: ${(props) => props.theme.sizes.maxWidth};
@@ -32,8 +30,23 @@ const MainWrapper = styled.div`
 `;
 
 const Header = () => {
+  const prevScrollPos = React.useRef(0);
+  window.onscroll = function () {
+    const currScrollPos = window.pageYOffset;
+    const isScrollingDown = currScrollPos > prevScrollPos.current;
+    prevScrollPos.current = currScrollPos;
+    const header = document.getElementById("header-container");
+
+    if (isScrollingDown) {
+      header.style.transform = `translateY(-150px)`;
+    } else if (currScrollPos === 0) {
+      header.style.transform = "translateY(0)";
+    } else {
+      header.style.transform = "translateY(-30px)";
+    }
+  };
   return (
-    <Container>
+    <Container id="header-container">
       <MainWrapper>
         {/*<WelcomeScreen />*/}
         <AnimatedLink style={{ display: "flex" }} to={`/`}>

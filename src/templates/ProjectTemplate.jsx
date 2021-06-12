@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 import {
   getArtDirectedImages,
   getArtDirectedAspectRatios,
@@ -16,11 +17,12 @@ import PizzaDoughRecipe from "../components/PizzaDoughRecipe";
 const Paragraph = styled.p`
   font-size: ${(props) => (props.isSmall ? "0.875rem" : "1.25rem")};
   font-weight: normal;
+  font-family: Playfair Display;
   max-width: 1138px;
   text-align: center;
   margin: 3rem auto;
   padding: 0 2rem;
-  -webkit-text-size-adjust: none;
+
   ${(props) =>
     props.isBold &&
     `
