@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   &:hover {
     > div {
       transform: translateY(0);
-      transition: 0.4s cubic-bezier(0.01, 0.75, 0.33, 0.99);
+      transition: 0.8s cubic-bezier(0.01, 0.75, 0.33, 0.99);
     }
   }
 `;

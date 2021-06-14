@@ -2,13 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
-import { Helmet } from "react-helmet";
 import {
   getArtDirectedImages,
   getArtDirectedAspectRatios,
   reduceImageQueryResult,
 } from "src/helpers";
-
+import SEO from "src/components/SEO";
 import { media } from "src/helpers";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import ProjectThumbnails from "../components/ProjectThumbnails";
@@ -63,6 +62,7 @@ const OrderedList = styled.ol`
 const Heading = styled.h1`
   max-width: 1138px;
   text-align: center;
+  font-weight: normal;
   margin: 3rem auto;
   padding: 0 2rem;
   font-size: 2rem;
@@ -241,9 +241,19 @@ const ProjectTemplate = ({
   });
 
   const isItGrodziec = slugg === "mlyn_grodziec" || slugg === "młyn_grodziec";
+  const firstParagraph = orderedTextAndImages.find(
+    ({ type }) => type === "text"
+  )?.value;
+
+  console.log("thumbnail:", frontmatter.thumbnail);
 
   return (
     <Wrapper>
+      <SEO
+        title={producer}
+        description={firstParagraph}
+        image={frontmatter.thumbnail}
+      />
       <Heading>{frontmatter.heading}</Heading>
       {[...orderedTextAndImages, ...images].map((content) => {
         switch (content.type) {
@@ -260,7 +270,7 @@ const ProjectTemplate = ({
       })}
       {isItGrodziec && <PizzaDoughRecipe />}
       <ScopeOfWork>
-        Zakres prac:
+        {t("scope_of_work")}:
         {categories.map((category) => (
           <span>{t(category)}</span>
         ))}
@@ -283,6 +293,13 @@ export const pageQuery = graphql`
         occurrence
         categories
         order
+        thumbnail {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
       }
     }
 

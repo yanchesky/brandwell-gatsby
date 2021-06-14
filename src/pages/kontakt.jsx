@@ -1,9 +1,18 @@
 import React from "react";
-import Layout from "../layouts/main";
+import styled from "styled-components";
+import Footer from "src/components/Footer";
 import { graphql } from "gatsby";
 
+const Wrapper = styled.div`
+  height: calc(100vh - 10rem);
+`;
+
 const Kontakt = () => {
-  return null;
+  return (
+    <Wrapper>
+      <Footer />
+    </Wrapper>
+  );
 };
 
 export default Kontakt;

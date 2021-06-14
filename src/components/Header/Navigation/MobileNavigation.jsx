@@ -89,7 +89,7 @@ const MobileNavigation = () => {
 
   React.useEffect(() => {
     if (isMainPage) {
-      hamburgerMenuCheckbox.current.checked = true;
+      //hamburgerMenuCheckbox.current.checked = true;
     }
   }, [pathname.length]);
 

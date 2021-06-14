@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import { media } from "src/helpers/breakpoints";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import SEO from "../components/SEO";
 
 const Wrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.textMaxWidth};
@@ -94,10 +95,10 @@ const Wrapper = styled.div`
 `;
 
 const AboutUs = () => {
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
   return (
     <Wrapper>
+      <SEO title={t("o_nas")} description={t("mainHeading")} />
       <h1>{t("mainHeading")}</h1>
       <h2 style={{ marginBottom: "2rem" }}>{t("heading1")}</h2>
       <div>

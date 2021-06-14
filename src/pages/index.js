@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import ProjectThumbnails from "../components/ProjectThumbnails";
+import SEO from "../components/SEO";
 
 const Title = styled.h1`
   text-align: center;
@@ -8,15 +10,17 @@ const Title = styled.h1`
   margin-bottom: 2rem;
 `;
 
-const Wrapper = styled.div`
-  background: white;
-  height: 20vh;
-`;
-
 const Index = () => {
   return (
     <div style={{ overflow: "hidden" }}>
-      <Wrapper id="main-page-wrapper" />
+      <SEO
+        title={"Brand Design | Packaging"}
+        description={
+          "Brandwell is an independent branding agency. We build brands. We design packaging and identification."
+        }
+      />
+      <Title>Portfolio</Title>
+      <ProjectThumbnails />
     </div>
   );
 };

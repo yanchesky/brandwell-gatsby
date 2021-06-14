@@ -17,6 +17,9 @@ const Footer = styled.footer`
   position: relative;
   font-size: 18px;
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   > span {
     display: block;
@@ -45,7 +48,7 @@ const Footer = styled.footer`
 
 const SocialWrapper = styled.div`
   display: inline-block;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 `;
 
 const Index = () => {
@@ -74,8 +77,8 @@ const Index = () => {
           <SocialIcon src={linkedin} />
         </a>
       </SocialWrapper>
-      <p>
-        © 2021 Brandwell Branding & Packaging Design. All copywrights reserved
+      <p style={{ marginTop: "auto" }}>
+        © 2021 Brandwell Branding & Packaging Design. All copyrights reserved
       </p>
     </Footer>
   );

@@ -34,19 +34,20 @@ const Header = () => {
     const checkbox = document.querySelector(".checkbox-toggle");
     if (window) {
       document.addEventListener("scroll", function () {
-        const currScrollPos = window.pageYOffset;
+        const currScrollPos = Math.max(window.pageYOffset, 0);
         const isScrollingDown = currScrollPos > prevScrollPos.current;
         prevScrollPos.current = currScrollPos;
+        console.log("isScrollingDown:", isScrollingDown);
         const header = document.getElementById("header-container");
         if (!checkbox.checked) {
           if (isScrollingDown) {
-            header.style.transform = `translateY(-150px)`;
+            header.style.top = `-150px`;
             //header.style.top = "-150px";
           } else if (currScrollPos === 0) {
-            header.style.transform = "translateY(0)";
+            header.style.top = "0";
             //header.style.top = "0";
           } else {
-            header.style.transform = "translateY(-30px)";
+            header.style.top = "-30px";
             // header.style.top = "-30px";
           }
         }

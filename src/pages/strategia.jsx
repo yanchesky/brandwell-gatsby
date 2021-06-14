@@ -4,6 +4,7 @@ import Layout from "../layouts/main";
 import { graphql } from "gatsby";
 import { media } from "src/helpers/breakpoints";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import SEO from "../components/SEO";
 
 const Wrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.textMaxWidth};
@@ -95,6 +96,7 @@ const Strategia = () => {
   const { t } = useTranslation();
   return (
     <Wrapper>
+      <SEO title={t("strategy")} description={t("strategy.mainHeading")} />
       <h1>{t("strategy.mainHeading")}</h1>
       <p>{t("strategy.paragraph1")}</p>
       <p>{t("strategy.paragraph2")}</p>
