@@ -25,7 +25,7 @@ const DescriptionContainer = styled.div`
   background: white;
   text-align: center;
   padding: 1.25rem;
-  transition: 0.3s ease;
+  transition: 0.6s ease;
 
   div {
     display: flex;

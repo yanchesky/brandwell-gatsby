@@ -1,8 +1,8 @@
 ---
 slug: "mincer_pharma"
 order: 10
-producer: "Mincer"
-product: "Mincer"
+producer: "Mincer Pharma"
+product: "Mincer Pharma"
 heading: "Rebranding. Odwaga odrzucenia wszystkiego poza nazwą."
 categories:
     - "brand.strategy"

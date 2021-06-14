@@ -3,7 +3,7 @@ slug: "arkana"
 order: 11
 producer: "Arkana"
 product: "Arkana"
-heading: "Rebranding. Niech konsument ma szansę zrozumieć markę."
+heading: "Rebranding. Niech konsument ma szansę zrozumieć markę."
 categories:
     - "brand.strategy"
     - "brand.logo"

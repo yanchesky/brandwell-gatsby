@@ -3,7 +3,7 @@ slug: "el_cartel"
 order: 16
 producer: "El Cartel"
 product: "El Cartel"
-heading: "“De puta madre, has hecho excelente trabajo” – powiedzieli i zapłacili."
+heading: "“De puta madre, has hecho excelente trabajo” – powiedzieli i zapłacili."
 categories:
     - "brand.logo"
     - "packaging"

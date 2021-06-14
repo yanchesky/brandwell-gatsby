@@ -2,7 +2,7 @@
 slug: "true"
 heading: "I don't have to kid myself. I’m as old as I am. It doesn't mean I can't take care of myself. True."
 ---
-True is another example of how we work on brand building. We defined its consumers – mature and modern men with professional achievements. We looked into their needs, values and attitude to the category.
+True is another example of how we work on brand building. We defined its consumers – mature and modern men with professional achievements. We looked into their needs, values and attitude to the category.
 
 Thanks to strategic workshops, we created the brand’s positioning, where the consumers’ convictions about their own worth, self-sufficiency and self-determination stand out. What also emerged was the ability to differentiate between bullshit and real values, and the fact that they care ... They care about their work, family, and the world they together are creating.
 

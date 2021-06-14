@@ -3,7 +3,7 @@ slug: "fernet"
 order: 25
 producer: "Fernet"
 product: "Fernet"
-heading: "Herbal Bitter. Ikony rynku też podlegają liftingowi."
+heading: "Herbal Bitter. Ikony rynku też podlegają liftingowi."
 categories:
 - "packaging"
 
