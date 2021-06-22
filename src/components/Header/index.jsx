@@ -42,13 +42,10 @@ const Header = () => {
         if (!checkbox.checked) {
           if (isScrollingDown) {
             header.style.top = `-150px`;
-            //header.style.top = "-150px";
           } else if (currScrollPos === 0) {
             header.style.top = "0";
-            //header.style.top = "0";
           } else {
             header.style.top = "-30px";
-            // header.style.top = "-30px";
           }
         }
       });
@@ -57,7 +54,6 @@ const Header = () => {
   return (
     <Container id="header-container">
       <MainWrapper>
-        {/*<WelcomeScreen />*/}
         <AnimatedLink style={{ display: "flex" }} to={`/`}>
           <Logo alt="logo" src={brandwell_logo} />
         </AnimatedLink>

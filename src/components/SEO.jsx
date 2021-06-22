@@ -3,7 +3,7 @@ import { useLocation } from "@reach/router";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const SITE_URL = "https://brandwell.pl";
+const SITE_URL = "https://www.brandwell.pl";
 
 const SEO = ({ title, description, image }) => {
   const { i18n } = useTranslation();

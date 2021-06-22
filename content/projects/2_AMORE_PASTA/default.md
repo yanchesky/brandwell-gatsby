@@ -24,7 +24,7 @@ occurrence:
     - "image"
     - "text"
 ---
-Perino - producent ręcznie robionych makaronów i innych mącznych specjałów kuchni włoskiej rozwijał swój biznes operując na rynku HoReCa. Decydując się na wejście na rynek B2C poprosił nas o stworzenie marki konsumenckiej.
+Producent ręcznie robionych makaronów i innych mącznych specjałów kuchni włoskiej rozwijał swój biznes operując na rynku HoReCa. Decydując się na wejście na rynek B2C poprosił nas o stworzenie marki konsumenckiej.
 
 1. W procesie projektowania marki przyjęliśmy kilka istotnych założeń:
 2. 1. Naming. Kreacja nazwy, która bezsprzecznie kojarzyłaby się z Włochami, ale też była na tyle prosta, by jej rozumienie nie wymagało znajomości języka włoskiego.

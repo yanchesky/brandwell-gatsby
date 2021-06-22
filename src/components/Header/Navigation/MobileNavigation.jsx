@@ -14,9 +14,7 @@ import {
   HamburgerWrapper,
   HamburgerIconWrapper,
   LinksList,
-  LanguagesWrapper,
 } from "./HamburgerMenuComponents";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const LinksWrapper = styled.nav`
   z-index: 2;
@@ -87,12 +85,6 @@ const MobileNavigation = () => {
     hamburgerMenuCheckbox.current = document.querySelector(".checkbox-toggle");
   }, []);
 
-  React.useEffect(() => {
-    if (isMainPage) {
-      //hamburgerMenuCheckbox.current.checked = true;
-    }
-  }, [pathname.length]);
-
   const closeHamburgerMenu = () => {
     hamburgerMenuCheckbox.current.checked = false;
     const body = document.querySelector("body");
@@ -110,7 +102,14 @@ const MobileNavigation = () => {
         <HamburgerCheckbox
           onClick={(e) => {
             const body = document.querySelector("body");
+            const preopenWidth = body.offsetWidth;
             body.style.overflowY = e.target.checked ? "hidden" : "initial";
+            const afteropenWidth = body.offsetWidth;
+            const paddingToSet = Math.max(afteropenWidth - preopenWidth, 0);
+
+            body.style.paddingRight = e.target.checked
+              ? `${paddingToSet}px`
+              : 0;
           }}
           type="checkbox"
           className="checkbox-toggle"

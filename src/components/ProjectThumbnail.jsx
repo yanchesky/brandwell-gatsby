@@ -31,7 +31,6 @@ const DescriptionContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    //max-width: fit-content;
     > span {
       font-size: 0.875rem;
       margin-right: 0.25rem;

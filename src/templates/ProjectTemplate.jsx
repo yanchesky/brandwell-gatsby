@@ -133,7 +133,7 @@ const StyledImage = styled(GatsbyImage)`
     `}
 `;
 
-const renderImage = ({ value, type }) => {
+const renderImage = (alt) => ({ value, type }) => {
   const ratios = getArtDirectedAspectRatios(value);
   const artDirectedImages = getArtDirectedImages(value);
   const artDirectedImage = withArtDirection(
@@ -145,7 +145,7 @@ const renderImage = ({ value, type }) => {
     <StyledImage
       style={{ display: "block" }}
       isFullscreen={type === "full-image"}
-      alt="sds"
+      alt={alt}
       image={artDirectedImage}
       ratios={ratios}
       objectFit="contain"
@@ -174,11 +174,11 @@ const renderText = ({ value, type }) => {
 
 const ProjectTemplate = ({
   data,
-  pageContext: { slugg, producer, product, categories, occurrence, order },
+  pageContext: { slugg, producer, categories, occurrence, order },
 }) => {
   const { t } = useTranslation();
   const {
-    markdownRemark: { frontmatter, html, htmlAst },
+    markdownRemark: { frontmatter, htmlAst },
     desktopImages: { edges: desktopEdges },
     tabletImages: { edges: tabletEdges },
     mobileImages: { edges: mobileEdges },
@@ -245,7 +245,7 @@ const ProjectTemplate = ({
     ({ type }) => type === "text"
   )?.value;
 
-  console.log("thumbnail:", frontmatter.thumbnail);
+  const renderDescribedImage = renderImage(producer);
 
   return (
     <Wrapper>
@@ -263,9 +263,9 @@ const ProjectTemplate = ({
             return renderText(content);
           case "image":
           case "full-image":
-            return renderImage(content);
+            return renderDescribedImage(content);
           default:
-            return renderImage({ value: content });
+            return renderDescribedImage({ value: content });
         }
       })}
       {isItGrodziec && <PizzaDoughRecipe />}

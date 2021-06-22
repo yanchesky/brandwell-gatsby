@@ -57,7 +57,7 @@ const ProjectThumbnails = ({ filterFrom = 0 }) => {
           return (
             <AnimatedLink key={index} to={`/portfolio/${slug}`}>
               <ProjectThumbnail
-                alt={slug}
+                alt={producer}
                 image={thumbnail}
                 producer={producer}
                 categories={categories}

@@ -2,16 +2,6 @@ import { getImage } from "gatsby-plugin-image";
 
 export * from "./breakpoints";
 
-export function pickBy(object) {
-  const obj = {};
-  for (const key in object) {
-    if (object[key]) {
-      obj[key] = object[key];
-    }
-  }
-  return obj;
-}
-
 export const getArtDirectedImages = ({ mobile, tablet }) => {
   const images = [];
   if (mobile) {

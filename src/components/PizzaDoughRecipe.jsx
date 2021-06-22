@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "src/helpers";
-import { graphql } from "gatsby";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Wrapper = styled.div`

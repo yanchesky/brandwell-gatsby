@@ -24,3 +24,4 @@ jobs:
           server: ftp.s5.zenbox.pl
           username: yano@brandwell.pl
           password: ${{ secrets.ftp_password }}
+          local-dir: ./public/

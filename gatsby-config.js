@@ -6,7 +6,7 @@ const {
 
 const settings = {
   title: "brandwell-gatsby",
-  siteUrl: "https://brandwell.pl/",
+  siteUrl: "https://www.brandwell.pl/",
   defaultLanguage: "pl",
   languages: ["pl", "en"],
   projectsSlug: "portfolio",
@@ -42,25 +42,27 @@ module.exports = {
       options: {
         ns: ["other", "translation"],
         defaultNS: "translation",
-        localeJsonSourceName: `locales`, // name given to `gatsby-source-filesystem` plugin.
+        localeJsonSourceName: "locales",
         languages: settings.languages,
         defaultLanguage: settings.defaultLanguage,
-        // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: settings.siteUrl,
         generateDefaultLanguagePage: true,
-        // you can pass any i18next options
-        // pass following options to allow message content as a key
         i18nextOptions: {
           interpolation: {
-            escapeValue: false, // not needed for react as it escapes by default
+            escapeValue: false,
           },
           keySeparator: false,
           nsSeparator: false,
         },
         pages: [
           {
-            matchPath: `/:lang/${settings.projectsSlug}/:name`,
+            matchPath: "/:lang/${settings.projectsSlug}/:name",
             getLanguageFromPath: true,
+            excludeLanguages: settings.languages,
+          },
+          {
+            matchPath: `/static/`,
+            getLanguageFromPath: false,
             excludeLanguages: settings.languages,
           },
         ],

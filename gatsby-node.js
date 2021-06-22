@@ -91,7 +91,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 };
 
-exports.onCreatePage = ({ page, actions, store }) => {
+exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
   const [_, language, route] = page.path?.split("/");
 

@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 
   > h1,
   h2 {
+    font-weight: 400;
     font-size: 2rem;
 
     ${media.tablet`
