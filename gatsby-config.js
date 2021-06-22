@@ -56,7 +56,7 @@ module.exports = {
         },
         pages: [
           {
-            matchPath: "/:lang/${settings.projectsSlug}/:name",
+            matchPath: `/:lang/${settings.projectsSlug}/:name`,
             getLanguageFromPath: true,
             excludeLanguages: settings.languages,
           },
