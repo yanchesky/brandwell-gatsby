@@ -1,54 +1,49 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+## 💡 About
 
-## 🚀 Quick start
+This is project of website of polish branding agency - Brandwell made in [Gatsby](https://www.gatsbyjs.com). It's focused on the best possible performance with the highest quality of presented images.
 
-1.  **Create a Gatsby site.**
+Website is focused on presenting images of realised projects. Images are [art directed](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiY7cyhnLXxAhXVCRAIHTSqBAMQFjALegQIBhAD&url=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FLearn%2FHTML%2FMultimedia_and_embedding%2FResponsive_images&usg=AOvVaw3Zm06JzHu3NvqVx0VJPofd) for best experience on every device thanks to [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image).
+Image placeholders are trace-colored and when user enters viewport, webp images are loaded and fallback to jpg if not supported.
+Site is styled using [styled-components](https://styled-components.com)
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+Sites other features are:
+- Multilingual with urls translation by [gatsby-plugin-react-i18next](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-i18next/),
+- SEO optimized with sitemap by [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/) [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/)
 
-2.  **Start developing.**
+## 🗄 Content
 
-    Navigate into your new site’s directory and start it up.
+All projects on website are fetched on build time from `content/projects` directory. Project page is made of blocks of text and images. Occurrence of it is defined in `default.md`
+1. `default.md`
+   This file is in every project's directory. 
+   It contains project's details for all 
+   language versions and description in default language (in this case polish).
+2. `en.md` English description of project.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## 🧑🏼‍💻 Development
 
-3.  **Open the code and start customizing!**
+1. **Requirements**
+    - Node 12+
+    - Gatsby CLI
+2. **Scripts**
 
-    Your site is now running at http://localhost:8000!
+| Command                    | Description                              |
+| ------------------ | ----- |
+| `gatsby develop`   | Run development server with live reloading   |
+| `gatsby build`     | Creates optimized production-ready application files   |
+| `gatsby serve`     | Serve built page     |
+| `gatsby clean`     | Clears `.cache` and `public` directories    |
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+## 🌐 Translations
 
-4.  **Tłumaczenia**
+Translations are stored in three places.
+- md files for projects are processed in `gatsby-config`. 
+- `src/intl/routeTranslations.json` for urls. Keys of json must match with pages names in `src/pages`
+- other in `src/intl/{langage_code}`
 
-    Tłumaczenie urli stron jest oparte na pliku  ```src/intl/routeTranslations.json```
-    Klucze muszą odpowiadać stronom w ```src/pages```. Jeśli w danym kluczu nie ma odpowiednika
-    w innym języku, brana jest wartość domyślna.
-    
-    Tłumaczenie projektów z portfolio odbywa się ```gatsby-node.js``` i wymagana jest określona
-    struktura plików *.md. default.md zawiera informacje powtarzalne w innych językach, jak 
-    na przykład klucze tagów. Warianty językowe są odczytywane z nazwy pliku. Np. ```en.md```
-    
-    W graph query w ProjectTemplate podajemy tylko te pola, które są dostępne we wszystkich
-    wariantach językowych. Jeśli chcemy, odnieść się do pola, które jest uniwersalne dla wszystkich
-    wariantów językowych robimy to w query w ```gatsby-node.js```
-    
-    **Projekty**
+Queries in `src/templates/ProjectTemplate.jsx` must only access fields available in all languages. 
+To get common details for all languages you must do it in `gatsby-node.js`
 
-    Wygląd poszczególnych projektów bazuje na tekście i zdjęciach. Na różnych projektach jest
-    różna ułożenie tekstu i zdjęć między sobą. Dlatego w plikach md podawana jest informacja
-    przed którym zdjęciem ma być wstawiony paragraf. 
+## 🌍 Live
+
+https://www.brandwell.pl

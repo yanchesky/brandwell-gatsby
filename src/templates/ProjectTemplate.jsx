@@ -25,9 +25,9 @@ const Paragraph = styled.p`
   ${(props) =>
     props.isBold &&
     `
-        font-size: 2rem;
-        font-weight: 700;
-      `}
+      font-size: 2rem;
+      font-weight: 700;
+    `}
   ${media.mobile`
     margin: 10rem auto;
     font-size: ${(props) => (props.isSmall ? "1.5rem" : "2.25rem")};
