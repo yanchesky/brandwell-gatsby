@@ -90,5 +90,20 @@ module.exports = {
         serialize: serializer,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-28877178-1",
+        head: false,
+        anonymize: true,
+        respectDNT: false,
+        pageTransitionDelay: 0,
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: settings.siteUrl,
+        enableWebVitalsTracking: true,
+      },
+    },
   ],
 };
