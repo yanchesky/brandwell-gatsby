@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql } from "gatsby";
 import { useQueryProjects } from "src/hooks";
 import AnimatedLink from "src/components/AnimatedLinkPageTransitionWrapper";
 import ProjectThumbnail from "../components/ProjectThumbnail";
