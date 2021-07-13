@@ -5,6 +5,7 @@ import { useLocation } from "@reach/router";
 import { GlobalStyle } from "src/styles/global";
 import "src/styles/global.css";
 import "src/styles/typography.css";
+import CookieInfo from "../components/CookieInfo";
 
 function MainLayout({ children }) {
   const { pathname } = useLocation();
@@ -16,7 +17,7 @@ function MainLayout({ children }) {
       <main style={{ paddingTop: "10rem" }} className="">
         {children}
       </main>
-
+      <CookieInfo />
       {!isContact && <Footer />}
     </>
   );
