@@ -7,7 +7,8 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
 
-  &:hover {
+  &:hover,
+  &.touched {
     > div {
       transform: translateY(0);
       transition: 0.8s cubic-bezier(0.01, 0.75, 0.33, 0.99);
@@ -48,8 +49,17 @@ const DescriptionContainer = styled.div`
 
 const ProjectThumbnail = ({ alt, image, categories, producer }) => {
   const { t } = useTranslation();
+  const ref = React.useRef(null);
   return (
-    <Wrapper>
+    <Wrapper
+      ref={ref}
+      onTouchStart={() => {
+        ref?.current.classList.add("touched");
+      }}
+      onTouchEnd={() => {
+        ref?.current.classList.remove("touched");
+      }}
+    >
       <GatsbyImage
         style={{ width: "100%" }}
         alt={alt}
