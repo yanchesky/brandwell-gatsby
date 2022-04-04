@@ -1,3 +1,4 @@
+import React from 'react'
 const routeTranslations = require("src/intl/routeTranslations.json");
 
 export const translateOriginalPath = (originalPath, slugAlternates) => {
@@ -5,9 +6,9 @@ export const translateOriginalPath = (originalPath, slugAlternates) => {
   const fixedLanguage = language === "pl" ? "default" : language;
 
   const englishTranslatedMainPath =
-    routeTranslations[mainPath]?.["en"] || mainPath;
+    routeTranslations[mainPath]?.["en"] || mainPath || "";
   const polishTranslatedMainPath =
-    routeTranslations[mainPath]?.["pl"] || mainPath;
+    routeTranslations[mainPath]?.["pl"] || mainPath || "";
 
   const slugAlternatesObject = slug
     ? slugAlternates.find((el) => el[fixedLanguage] === slug)
