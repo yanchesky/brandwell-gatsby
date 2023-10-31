@@ -11,6 +11,7 @@ categories:
 thumbnail: "images/1.jpg"
 occurrence:
 - "text"
+- "text"
 - "full-image"
 - "full-image"
 - "full-image"
