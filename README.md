@@ -23,7 +23,7 @@ All projects on website are fetched on build time from `content/projects` direct
 ## 🧑🏼‍💻 Development
 
 1. **Requirements**
-    - Node 12+
+    - Node 14+
     - Gatsby CLI
 2. **Scripts**
 
