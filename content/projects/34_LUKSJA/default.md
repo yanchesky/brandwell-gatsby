@@ -1,6 +1,6 @@
 ---
 slug: "luksja"
-order: 1
+order: 0.9
 producer: "Luksja"
 product: "Luksja"
 heading: "Kompleksowy rebranding. Znana i lubiana marka w nowej odsłonie."

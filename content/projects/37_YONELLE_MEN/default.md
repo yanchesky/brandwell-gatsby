@@ -1,7 +1,7 @@
 ---
 slug: "yonelle_men"
-order: 1
-producer: "Yonelle"
+order: 1.2
+producer: "Yonelle Men"
 product: "Yonelle Men"
 heading: "Męska rzecz"
 categories:

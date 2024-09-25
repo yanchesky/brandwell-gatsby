@@ -1,6 +1,6 @@
 ---
 slug: "discovery_historia"
-order: 1
+order: 0.8
 producer: "Discovery Historia"
 product: "Discovery Historia"
 heading: "Symbol marki wyraża cały brief. Opowiada historię."
