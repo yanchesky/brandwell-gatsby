@@ -8,7 +8,7 @@ categories:
 - "logo.design"
 - "packaging"
 
-thumbnail: "images/6.jpg"
+thumbnail: "images/Yonelle-Men-1-Thumb.jpg"
 occurrence:
 - "text"
 - "full-image"

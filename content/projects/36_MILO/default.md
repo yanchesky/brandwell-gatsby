@@ -8,7 +8,7 @@ categories:
 - "logo.design"
 - "packaging"
 
-thumbnail: "images/1.mobile.jpg"
+thumbnail: "images/Milo-2-Thumb.jpg"
 occurrence:
 - "text"
 - "full-image"
