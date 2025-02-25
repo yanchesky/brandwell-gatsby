@@ -2,3 +2,9 @@ node_modules/
 .cache/
 public
 work_time.txt
+.idea/brandwell-gatsby.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+content/.DS_Store
