@@ -158,13 +158,13 @@ const renderImage = (alt) => ({ value, type }) => {
 };
 
 const renderText = ({ value, type }) => {
-  console.log(value, type, "value, type");
-  // if in the text is string with such : "https://www.example.com"
-  // it will be replaced with <a href="https://www.example.com">www.example.com</a>
-  const replacedValue = value?.replace(
-    /((https?:\/\/)?(www\.)?([a-zA-Z0-9-]+)\.([a-zA-Z0-9-]+)(\.[a-zA-Z0-9-]+)?)/g,
-    '<a href="$1" target="_blank">$3$4.$5$6</a>'
-  );
+  const replacedValue = (() => {
+    if (!value) return null;
+    return value?.replace(
+      /((https?:\/\/)?(www\.)?([a-zA-Z0-9-]+)\.([a-zA-Z0-9-]+)(\.[a-zA-Z0-9-]+)?)/g,
+      '<a href="$1" target="_blank">$3$4.$5$6</a>'
+    );
+  })();
 
   if (typeof value === "string") {
     return (
